@@ -23,7 +23,7 @@ class C_Function{
     getFuctionMathExpress(){
         // 获取该函数的数学表达式
         let mathExpress =  getMathExpress(this.astTree)
-        console.log(mathExpress)
+        // console.log(mathExpress)
         // if(this.name == "vote"){
         //     console.log(JSON.stringify(this.astTree,null,2))
         // }
