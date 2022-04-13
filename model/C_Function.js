@@ -9,7 +9,7 @@ class C_Function{
         this.params = []
         this.getFuctionParams()   // 获取函数参数
 
-        this.getFuctionMathExpress()
+        this.getSpotChain()
 
     }
     getFuctionParams(){
@@ -29,8 +29,40 @@ class C_Function{
         // }
     }
 
+    getBinaryOperation(){
+        // 获取所有的赋值运算 包括 += -= =
+        let binaryOperation_express = []
+        let find_binaryOperation = [] 
+        find_Element_by_dfs(this.astTree, "" , "type" ,"BinaryOperation", find_binaryOperation)
+        
+        find_binaryOperation.forEach(binaryOperation => {
+            if (binaryOperation.operator in {"=":0 , "-=":0 , "+=":0 , "*=":0}){
+                binaryOperation_express.push(binaryOperation)
+            }
+        });
+
+        return binaryOperation_express
+    }
+
     getSpotChain(){
         //   污点追踪
+        if(this.name == "vote"){
+            // 筛选无符号类型的参数  spot_params 待检测的污点列表
+            let spot_params = []
+            this.params.forEach(param => {
+                if(param.type_name.indexOf("uint") != -1){
+                    spot_params.push(param.name)
+                }else if(param.type_name == "Array" && param.type_name.array_type.indexOf("uint") != -1 ){
+                    // 数组类型的uint 参数
+                    spot_params.push(param.name)
+                }
+            });    
+            
+            //所有的赋值运算
+            ... tree-> code
+        }
+
+        
 
     }
 }

@@ -105,6 +105,8 @@ contract Ballot {
         sender.voted = true;
         sender.vote = proposal;
         test = proposal - 1;
+        ttt = test + proposal;
+        ccc = SafeMath.add(111,ttt);
 
         // If 'proposal' is out of the range of the array,
         // this will throw automatically and revert all

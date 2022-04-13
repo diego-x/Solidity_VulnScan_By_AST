@@ -11,5 +11,6 @@ contract EtherStore{
      require(balances[msg.sender] >= amount); 
   	 msg.sender.call.value(amount); 
   	 balances[msg.sender] -=amount; 
+     
    } 
 } 
