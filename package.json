@@ -1,0 +1,10 @@
+{
+  "dependencies": {
+    "ethereumjs-tx": "^2.1.2",
+    "solidity-parser": "^0.4.0",
+    "solidity-parser-antlr": "^0.4.11",
+    "urldecode": "^1.0.1",
+    "urlencode": "^1.1.0",
+    "web3": "^1.7.0"
+  }
+}
