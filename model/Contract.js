@@ -1,15 +1,16 @@
-const { find_Element_by_dfs, getDeclareVarOrFuctionParams } = require("../core/lib")
+const { find_Element_by_dfs, getDeclareVarOrFuctionParams, getVersion } = require("../core/lib")
 const C_Function = require("./C_Function")
 
 class Contract{
 
-    constructor(astTree){
+    constructor(astTree, version){
         this.astTree = astTree    // 该合约的ast代码
         this.name = astTree.name  // 设置合约名称
         this.DeclareVars = []
         this.funcitons = []      // 函数类构成的数组
         this.getDeclareVar()           // 获取定义的合约成员
         this.getFuntion()       // 设置合约函数
+        this.version = version   // 设置版本
     }
 
     getDeclareVar(){

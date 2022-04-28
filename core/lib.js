@@ -1,17 +1,36 @@
 // 找到对应元素的上一个位置    find_element_key寻找的键值  find_element_value寻找的元素值
-function find_Element_by_dfs(ast_tree , last_tree, find_element_key, find_element_value , res) {
+function find_Element_by_dfs(ast_tree , last_tree, find_element_key, find_element_value , res , value_is_object = 0) {
     
     Object.keys(ast_tree).forEach(key => {
 		
 		// 值不为空 且如果是object 类型则继续遍历
-		if(ast_tree[key] != null && typeof(ast_tree[key]) ==  "object"){
+		if(ast_tree[key] != null && typeof(ast_tree[key]) ==  "object" && !(value_is_object == 1 &&  Object.keys(ast_tree).indexOf(find_element_key) ) ){
+			// 指向上一个节点
 			last_tree = ast_tree[key]
 			find_Element_by_dfs(ast_tree[key], last_tree , find_element_key, find_element_value  , res)
 		}else{
 			// 判断是否为寻找对象 ， 是的话把上个元素push 进res中
-			if(find_element_key == key && ast_tree[find_element_key] == find_element_value){
-				res.push(last_tree)
+			if(value_is_object == 0){
+				if(find_element_key == key && ast_tree[find_element_key] == find_element_value){
+					if(last_tree == ""){
+						res.push(ast_tree)
+					}else{
+						res.push(last_tree)
+					}
+				}
+			}else{
+				// 如果value为复杂类型 则转化为字符串比较
+				let stringify = JSON.stringify(ast_tree[find_element_key])
+				if(find_element_key == key && stringify == find_element_value){
+					
+					if(last_tree == ""){
+						res.push(ast_tree)
+					}else{
+						res.push(last_tree)
+					}
+				}
 			}
+
 		}
     })
 }
@@ -23,7 +42,7 @@ function getVersion(ast){
 	var PragmaDirective = ast.children[0]
 	if(PragmaDirective.type === "PragmaDirective"){
 		version = PragmaDirective.value;
-		console.log(version)
+		//console.log(version)
 		// 格式化返回version
 		if (version.indexOf("^") != -1){
 			// 版本上下限
@@ -69,14 +88,6 @@ function getMathExpress(ast){
 	return math_express
 }
 
-
-// // 提取函数的所有参数
-// function getFunctionParams(ast){
-
-// 	find_element = []
-// 	find_Element_by_dfs(ast, "", "type", "VariableDeclaration", find_element)
-// 	console.log(find_element)
-// }
 
 // 提取类成员或者函数参数
 function getDeclareVarOrFuctionParams(arr){

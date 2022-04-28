@@ -879,6 +879,32 @@
               "storageLocation": null,
               "isStateVar": false,
               "isIndexed": false
+            },
+            {
+              "type": "VariableDeclaration",
+              "typeName": {
+                "type": "ElementaryTypeName",
+                "name": "address"
+              },
+              "name": "abc",
+              "storageLocation": null,
+              "isStateVar": false,
+              "isIndexed": false
+            },
+            {
+              "type": "VariableDeclaration",
+              "typeName": {
+                "type": "ArrayTypeName",
+                "baseTypeName": {
+                  "type": "ElementaryTypeName",
+                  "name": "uint256"
+                },
+                "length": null
+              },
+              "name": "abc",
+              "storageLocation": null,
+              "isStateVar": false,
+              "isIndexed": false
             }
           ],
           "returnParameters": null,
@@ -1003,6 +1029,21 @@
                 "type": "ExpressionStatement",
                 "expression": {
                   "type": "BinaryOperation",
+                  "operator": "-=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "test1"
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "name": "proposal"
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
                   "operator": "=",
                   "left": {
                     "type": "MemberAccess",
@@ -1013,8 +1054,380 @@
                     "memberName": "vote"
                   },
                   "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "proposal"
+                    },
+                    "right": {
+                      "type": "MemberAccess",
+                      "expression": {
+                        "type": "Identifier",
+                        "name": "sender"
+                      },
+                      "memberName": "voted"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
                     "type": "Identifier",
-                    "name": "proposal"
+                    "name": "test"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "-",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "proposal"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "aaa"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "abc"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "bbb"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "/",
+                    "left": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "name": "abc"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "right"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    },
+                    "right": {
+                      "type": "MemberAccess",
+                      "expression": {
+                        "type": "Identifier",
+                        "name": "sender"
+                      },
+                      "memberName": "vote"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "ttt"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "test"
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "name": "proposal"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "txxx"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "Identifier",
+                      "name": "ttt"
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "2",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "think"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    },
+                    "right": {
+                      "type": "Identifier",
+                      "name": "aaaaa"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "cccc"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "BinaryOperation",
+                      "operator": "+",
+                      "left": {
+                        "type": "BinaryOperation",
+                        "operator": "+",
+                        "left": {
+                          "type": "BinaryOperation",
+                          "operator": "+",
+                          "left": {
+                            "type": "BinaryOperation",
+                            "operator": "+",
+                            "left": {
+                              "type": "BinaryOperation",
+                              "operator": "+",
+                              "left": {
+                                "type": "BinaryOperation",
+                                "operator": "+",
+                                "left": {
+                                  "type": "NumberLiteral",
+                                  "number": "1",
+                                  "subdenomination": null
+                                },
+                                "right": {
+                                  "type": "NumberLiteral",
+                                  "number": "2",
+                                  "subdenomination": null
+                                }
+                              },
+                              "right": {
+                                "type": "NumberLiteral",
+                                "number": "1",
+                                "subdenomination": null
+                              }
+                            },
+                            "right": {
+                              "type": "NumberLiteral",
+                              "number": "3",
+                              "subdenomination": null
+                            }
+                          },
+                          "right": {
+                            "type": "NumberLiteral",
+                            "number": "4",
+                            "subdenomination": null
+                          }
+                        },
+                        "right": {
+                          "type": "Identifier",
+                          "name": "txxx"
+                        }
+                      },
+                      "right": {
+                        "type": "NumberLiteral",
+                        "number": "1",
+                        "subdenomination": null
+                      }
+                    },
+                    "right": {
+                      "type": "NumberLiteral",
+                      "number": "3",
+                      "subdenomination": null
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "ccc"
+                  },
+                  "right": {
+                    "type": "BinaryOperation",
+                    "operator": "+",
+                    "left": {
+                      "type": "NumberLiteral",
+                      "number": "1",
+                      "subdenomination": null
+                    },
+                    "right": {
+                      "type": "FunctionCall",
+                      "expression": {
+                        "type": "MemberAccess",
+                        "expression": {
+                          "type": "Identifier",
+                          "name": "SafeMath"
+                        },
+                        "memberName": "add"
+                      },
+                      "arguments": [
+                        {
+                          "type": "NumberLiteral",
+                          "number": "111",
+                          "subdenomination": null
+                        },
+                        {
+                          "type": "Identifier",
+                          "name": "proposal"
+                        }
+                      ],
+                      "names": []
+                    }
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "-=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "spot1"
+                  },
+                  "right": {
+                    "type": "FunctionCall",
+                    "expression": {
+                      "type": "MemberAccess",
+                      "expression": {
+                        "type": "Identifier",
+                        "name": "SafeMath"
+                      },
+                      "memberName": "add"
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "name": "proposal"
+                      },
+                      {
+                        "type": "NumberLiteral",
+                        "number": "12",
+                        "subdenomination": null
+                      }
+                    ],
+                    "names": []
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "spot2"
+                  },
+                  "right": {
+                    "type": "FunctionCall",
+                    "expression": {
+                      "type": "MemberAccess",
+                      "expression": {
+                        "type": "Identifier",
+                        "name": "SafeMath"
+                      },
+                      "memberName": "add"
+                    },
+                    "arguments": [
+                      {
+                        "type": "Identifier",
+                        "name": "proposal"
+                      },
+                      {
+                        "type": "NumberLiteral",
+                        "number": "12",
+                        "subdenomination": null
+                      }
+                    ],
+                    "names": []
                   }
                 }
               },

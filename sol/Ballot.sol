@@ -108,16 +108,16 @@ contract Ballot {
         test = proposal - 1;
         aaa = abc + 1;
         bbb = 1 / abc;
+        right = 1 + sender.vote;
         ttt = test + proposal;
         txxx = ttt + 2 ;
-        cccc = 1 + 2 + 1 +3 + 4 + txxx + 1 ;
+        think = 1 + aaaaa;
+        cccc = 1 + 2 + 1 +3 + 4  + txxx + 1 + 3;
         ccc = 1+SafeMath.add(111,proposal);
         spot1 -= SafeMath.add(proposal,12);
         spot2 = SafeMath.add(proposal,12);
 
-        // If 'proposal' is out of the range of the array,
-        // this will throw automatically and revert all
-        // changes.
+
         proposals[proposal].voteCount += sender.weight;
     }
 
