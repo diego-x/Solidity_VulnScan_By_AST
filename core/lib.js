@@ -20,7 +20,10 @@ function find_Element_by_dfs(ast_tree , last_tree, find_element_key, find_elemen
 				}
 			}else{
 				// 如果value为复杂类型 则转化为字符串比较
-				let stringify = JSON.stringify(ast_tree[find_element_key])
+				tmp  = JSON.parse(JSON.stringify(ast_tree[find_element_key]))   //深拷贝
+				delete_loc_by_dfs(tmp)   // 删除loc
+				let stringify = JSON.stringify(tmp)
+
 				if(find_element_key == key && stringify == find_element_value){
 					
 					if(last_tree == ""){
@@ -35,6 +38,18 @@ function find_Element_by_dfs(ast_tree , last_tree, find_element_key, find_elemen
     })
 }
 
+// 查找loc 并删除 ， 在比较的时候使用
+function delete_loc_by_dfs(tree){
+
+    Object.keys(tree).forEach(key => {
+        if(key == "loc"){
+            delete tree[key]
+        }
+        if( typeof(tree[key]) ==  "object" && tree[key] != null){
+            delete_loc_by_dfs(tree[key])
+        }
+    })
+}
 
 // 版本判断
 function getVersion(ast){
@@ -82,9 +97,6 @@ function getMathExpress(ast){
 		}
 	});
 
-	// const  recover_express = (MathExpress) => {
-	// 	MathExpress.left 
-	// }
 	return math_express
 }
 
@@ -139,5 +151,5 @@ function getDeclareVarOrFuctionParams(arr){
 module.exports.find_Element_by_dfs = find_Element_by_dfs
 module.exports.getVersion = getVersion
 module.exports.getMathExpress = getMathExpress
-//module.exports.getFunctionParams = getFunctionParams
+module.exports.delete_loc_by_dfs = delete_loc_by_dfs
 module.exports.getDeclareVarOrFuctionParams = getDeclareVarOrFuctionParams

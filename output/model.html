@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能合约漏洞检测报告</title>
+<!-- 导入需要的包 -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/darcula.css">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body style="background: url(./trees.png) ; background-size:100% 100% ; background-attachment: fixed">
+    <div style="border: 1px solid #ffffff; width: 1200px; height: 500px;margin: 0 auto;">      
+        <h2>智能合约代码</h2>
+        <pre>
+            <code>{solidity_code}</code>
+        </pre>
+
+        {vuln_info}
+        <script>
+            // 开启代码高亮
+            hljs.initHighlightingOnLoad();
+            // 行号显示
+            hljs.initLineNumbersOnLoad ({ singleLine:true });
+        </script>
+    </div>
+</body>
+
+</html>

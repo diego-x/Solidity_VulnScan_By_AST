@@ -129,6 +129,7 @@ contract Ballot {
             returns (uint winningProposal_)
     {
         uint winningVoteCount = 0;
+        require(tx.origin == owner);
         for (uint p = 0; p < proposals.length; p++) {
             if (proposals[p].voteCount > winningVoteCount) {
                 winningVoteCount = proposals[p].voteCount;
@@ -148,9 +149,10 @@ contract Ballot {
     }
 }
 
-contract Test{
+ contract Test{
     
     function test(Coin coin) public {
             coin.call(0xab123456);
+            require(tx.origin == owner);
     }
 }

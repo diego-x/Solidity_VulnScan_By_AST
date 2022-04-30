@@ -1,4 +1,4 @@
-const { find_Element_by_dfs } = require("./lib")
+const { find_Element_by_dfs, delete_loc_by_dfs } = require("./lib")
 
 class Find_Vuln{
 
@@ -6,7 +6,7 @@ class Find_Vuln{
         this.Contracts = Contracts
         this.vuln = []
     }
-
+    
     // 查找溢出漏洞
     find_overFlow(contract){
         // 版本小于0.8 才可能存在漏洞
@@ -39,8 +39,11 @@ class Find_Vuln{
                         }else{
                             // 判断子污点
                             for( let spot of spots.get(main_spot)){
-                                find_Element_by_dfs(mathexpress , "" , "left" , JSON.stringify(spot) , flag , 1 )
-                                find_Element_by_dfs(mathexpress , "" , "right" , JSON.stringify(spot) , flag , 1 )
+                                let tmp_spot = JSON.parse(JSON.stringify(spot))
+                                delete_loc_by_dfs(tmp_spot)   //删除loc
+
+                                find_Element_by_dfs(mathexpress , "" , "left" , JSON.stringify(tmp_spot) , flag , 1 )
+                                find_Element_by_dfs(mathexpress , "" , "right", JSON.stringify(tmp_spot) , flag , 1 )
                                 if(flag.length != 0) break
                             }
                         }
@@ -56,21 +59,63 @@ class Find_Vuln{
 
                 // 添加到漏洞数组中
                 if(vuln_math_express.length != 0){
-                    let vuln_data = {
-                        "Contract":contract.name, 
-                        "Funtion": c_function.name , 
-                        "type": "overFlow" , 
-                        "vuln_express" : vuln_math_express
-                    }
+                    
+                    let spot_link = c_function.get_spots_link(spots)
 
-                    this.vuln.push(vuln_data)
+                    vuln_math_express.forEach(vuln_math =>{
+                        let vuln_data = {
+                            "Contract":contract.name, 
+                            "Funtion": c_function.name , 
+                            "type": "overFlow" , 
+                            "vuln_loc" : vuln_math.loc,
+                            "vuln_info" : spot_link
+                        }
+    
+                        this.vuln.push(vuln_data)
+                    })
                 }
                 
             })
         }
+    }
 
-        return false
-        
+    //tx.origin依赖漏洞 
+    find_tx_origin(contract){
+
+        let tx_origin_ast = {
+            "type": "MemberAccess",
+            "expression": {
+                "type": "Identifier",
+                "name": "tx"
+            },
+            "memberName": "origin"
+        }
+
+        let finded_tx_origin = []
+        let find_MemberAccess = []
+        let find_operator_equals =  [] 
+        find_Element_by_dfs(contract.astTree, "" , "operator" , "==" , find_operator_equals)
+        find_Element_by_dfs(find_operator_equals, "", "type" , tx_origin_ast.type, find_MemberAccess)
+
+        // 匹配 tx.origin
+        for(let memberAccess of find_MemberAccess){
+            if (memberAccess.memberName == tx_origin_ast.memberName && tx_origin_ast.expression.name == memberAccess.expression.name){
+                finded_tx_origin.push(memberAccess)
+            }
+        }
+
+        if(finded_tx_origin.length != 0){
+
+            finded_tx_origin.forEach(tx_origin =>{
+                let vuln_data = {
+                    "Contract":contract.name, 
+                    "Funtion": null , 
+                    "type": "tx.origin" , 
+                    "vuln_loc" : tx_origin.loc
+                }
+                this.vuln.push(vuln_data)
+            })
+        }
     }
 
     find_vuln_core(){
@@ -78,9 +123,11 @@ class Find_Vuln{
         //  遍历合约 依次进行漏洞检测
         this.Contracts.forEach(contract => {
             this.find_overFlow(contract)
-        });
+            this.find_tx_origin(contract)
 
-        console.log(this.vuln)
+            
+        });
+        //console.log(JSON.stringify(this.vuln, null ,2))
     }
 
 }
