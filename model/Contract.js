@@ -3,14 +3,15 @@ const C_Function = require("./C_Function")
 
 class Contract{
 
-    constructor(astTree, version){
+    constructor(astTree, version , contract_code){
         this.astTree = astTree    // 该合约的ast代码
         this.name = astTree.name  // 设置合约名称
         this.DeclareVars = []
-        this.funcitons = []      // 函数类构成的数组
+        this.functions = []      // 函数类构成的数组
         this.getDeclareVar()           // 获取定义的合约成员
         this.getFuntion()       // 设置合约函数
         this.version = version   // 设置版本
+        this.all_code = contract_code  // 所有的源代码
     }
 
     getDeclareVar(){
@@ -31,8 +32,8 @@ class Contract{
         let find_FunctionDefinition = []
         find_Element_by_dfs(this.astTree, "", "type" , "FunctionDefinition", find_FunctionDefinition)
         // 创建函数类并赋值
-        find_FunctionDefinition.forEach(funciton_ast => {
-            this.funcitons.push(new C_Function(funciton_ast))
+        find_FunctionDefinition.forEach(function_ast => {
+            this.functions.push(new C_Function(function_ast))
         })
     }
 

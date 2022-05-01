@@ -1,8 +1,8 @@
 // 找到对应元素的上一个位置    find_element_key寻找的键值  find_element_value寻找的元素值
+// value_is_object 0 时 key为字符串类型 ， 1时key为复杂类型，即子树
 function find_Element_by_dfs(ast_tree , last_tree, find_element_key, find_element_value , res , value_is_object = 0) {
     
     Object.keys(ast_tree).forEach(key => {
-		
 		// 值不为空 且如果是object 类型则继续遍历
 		if(ast_tree[key] != null && typeof(ast_tree[key]) ==  "object" && !(value_is_object == 1 &&  Object.keys(ast_tree).indexOf(find_element_key) ) ){
 			// 指向上一个节点
@@ -12,25 +12,33 @@ function find_Element_by_dfs(ast_tree , last_tree, find_element_key, find_elemen
 			// 判断是否为寻找对象 ， 是的话把上个元素push 进res中
 			if(value_is_object == 0){
 				if(find_element_key == key && ast_tree[find_element_key] == find_element_value){
-					if(last_tree == ""){
-						res.push(ast_tree)
-					}else{
+					// 判断上个树中是否包含查找元素
+					if(last_tree != "" && last_tree[find_element_key] == find_element_value){
 						res.push(last_tree)
+					}else{
+						res.push(ast_tree)
 					}
 				}
-			}else{
+			}else{		
 				// 如果value为复杂类型 则转化为字符串比较
-				tmp  = JSON.parse(JSON.stringify(ast_tree[find_element_key]))   //深拷贝
-				delete_loc_by_dfs(tmp)   // 删除loc
-				let stringify = JSON.stringify(tmp)
+				if(ast_tree[find_element_key] != undefined){
+					tmp  = JSON.parse(JSON.stringify(ast_tree[find_element_key]))   //深拷贝
+					delete_loc_by_dfs(tmp)   // 删除loc
+					let stringify = JSON.stringify(tmp)
 
-				if(find_element_key == key && stringify == find_element_value){
-					
-					if(last_tree == ""){
-						res.push(ast_tree)
-					}else{
-						res.push(last_tree)
+					if(find_element_key == key && stringify == find_element_value){			
+						if(last_tree == ""){
+							res.push(ast_tree)
+						}else{
+							res.push(last_tree)
+						}
 					}
+				
+				}
+				// 递归
+				if(ast_tree[key] != null && typeof(ast_tree[key]) ==  "object"){
+					last_tree = ast_tree[key]
+					find_Element_by_dfs(ast_tree[key], last_tree , find_element_key, find_element_value  , res, 1)
 				}
 			}
 
@@ -49,6 +57,22 @@ function delete_loc_by_dfs(tree){
             delete_loc_by_dfs(tree[key])
         }
     })
+}
+
+//  根据loc找代码
+function find_code_by_loc(loc , code){
+
+	let contract_code = code.split("\n")
+	// 漏洞位置
+	let vuln_code = ""
+	if(loc.start.line == loc.end.line){
+		vuln_code = contract_code[loc.start.line-1]
+	}else{
+		for(let i= loc.start.line; i <= loc.end.line; i++){
+			vuln_code += contract_code[i-1] + "\n"
+		}
+	}
+	return vuln_code        
 }
 
 // 版本判断
@@ -153,3 +177,4 @@ module.exports.getVersion = getVersion
 module.exports.getMathExpress = getMathExpress
 module.exports.delete_loc_by_dfs = delete_loc_by_dfs
 module.exports.getDeclareVarOrFuctionParams = getDeclareVarOrFuctionParams
+module.exports.find_code_by_loc = find_code_by_loc

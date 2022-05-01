@@ -146,6 +146,18 @@ contract Ballot {
             returns (bytes32 winnerName_)
     {
         winnerName_ = proposals[winningProposal()].name;
+        test.delegatecall('123');
+    }
+
+    function withdraw() public {
+        uint bal = balances[msg.sender];
+        balances[msg.sender] = 0;
+        require(bal > 0);
+
+        (bool sent,) = msg.sender.call.value(1); // Vulnerability of re-entrancy
+        require(sent, "Failed to send Ether");
+
+        balances[msg.sender] = 0;
     }
 }
 
@@ -154,5 +166,16 @@ contract Ballot {
     function test(Coin coin) public {
             coin.call(0xab123456);
             require(tx.origin == owner);
+    }
+    function() public {
+       require(fibonacciLibrary.delegatecall(msg.data));
+   }
+   function sendToWinner() public {
+        require(!payedOut);
+        winner.send(winAmount);
+        winner.b.callcode(winAmount);
+        winner.staticcal(winAmount);
+        winner.call(winAmount);
+        payedOut = true;
     }
 }
