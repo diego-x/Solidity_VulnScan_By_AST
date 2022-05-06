@@ -107,6 +107,7 @@ contract Ballot {
         sender.vote = proposal + sender.voted;
         test = proposal - 1;
         aaa = abc + 1;
+        a[b] = aaa;
         bbb = 1 / abc;
         right = 1 + sender.vote;
         ttt = test + proposal;

@@ -3615,8 +3615,35 @@
                   "type": "BinaryOperation",
                   "operator": "=",
                   "left": {
-                    "type": "Identifier",
-                    "name": "bbb",
+                    "type": "IndexAccess",
+                    "base": {
+                      "type": "Identifier",
+                      "name": "a",
+                      "loc": {
+                        "start": {
+                          "line": 110,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 110,
+                          "column": 8
+                        }
+                      }
+                    },
+                    "index": {
+                      "type": "Identifier",
+                      "name": "b",
+                      "loc": {
+                        "start": {
+                          "line": 110,
+                          "column": 10
+                        },
+                        "end": {
+                          "line": 110,
+                          "column": 10
+                        }
+                      }
+                    },
                     "loc": {
                       "start": {
                         "line": 110,
@@ -3624,6 +3651,61 @@
                       },
                       "end": {
                         "line": 110,
+                        "column": 11
+                      }
+                    }
+                  },
+                  "right": {
+                    "type": "Identifier",
+                    "name": "aaa",
+                    "loc": {
+                      "start": {
+                        "line": 110,
+                        "column": 15
+                      },
+                      "end": {
+                        "line": 110,
+                        "column": 15
+                      }
+                    }
+                  },
+                  "loc": {
+                    "start": {
+                      "line": 110,
+                      "column": 8
+                    },
+                    "end": {
+                      "line": 110,
+                      "column": 15
+                    }
+                  }
+                },
+                "loc": {
+                  "start": {
+                    "line": 110,
+                    "column": 8
+                  },
+                  "end": {
+                    "line": 110,
+                    "column": 18
+                  }
+                }
+              },
+              {
+                "type": "ExpressionStatement",
+                "expression": {
+                  "type": "BinaryOperation",
+                  "operator": "=",
+                  "left": {
+                    "type": "Identifier",
+                    "name": "bbb",
+                    "loc": {
+                      "start": {
+                        "line": 111,
+                        "column": 8
+                      },
+                      "end": {
+                        "line": 111,
                         "column": 8
                       }
                     }
@@ -3637,11 +3719,11 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 110,
+                          "line": 111,
                           "column": 14
                         },
                         "end": {
-                          "line": 110,
+                          "line": 111,
                           "column": 14
                         }
                       }
@@ -3651,44 +3733,44 @@
                       "name": "abc",
                       "loc": {
                         "start": {
-                          "line": 110,
+                          "line": 111,
                           "column": 18
                         },
                         "end": {
-                          "line": 110,
+                          "line": 111,
                           "column": 18
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 110,
+                        "line": 111,
                         "column": 14
                       },
                       "end": {
-                        "line": 110,
+                        "line": 111,
                         "column": 18
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 110,
+                      "line": 111,
                       "column": 8
                     },
                     "end": {
-                      "line": 110,
+                      "line": 111,
                       "column": 18
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 110,
+                    "line": 111,
                     "column": 8
                   },
                   "end": {
-                    "line": 110,
+                    "line": 111,
                     "column": 21
                   }
                 }
@@ -3703,11 +3785,11 @@
                     "name": "right",
                     "loc": {
                       "start": {
-                        "line": 111,
+                        "line": 112,
                         "column": 8
                       },
                       "end": {
-                        "line": 111,
+                        "line": 112,
                         "column": 8
                       }
                     }
@@ -3721,11 +3803,11 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 111,
+                          "line": 112,
                           "column": 16
                         },
                         "end": {
-                          "line": 111,
+                          "line": 112,
                           "column": 16
                         }
                       }
@@ -3737,11 +3819,11 @@
                         "name": "sender",
                         "loc": {
                           "start": {
-                            "line": 111,
+                            "line": 112,
                             "column": 20
                           },
                           "end": {
-                            "line": 111,
+                            "line": 112,
                             "column": 20
                           }
                         }
@@ -3749,44 +3831,44 @@
                       "memberName": "vote",
                       "loc": {
                         "start": {
-                          "line": 111,
+                          "line": 112,
                           "column": 20
                         },
                         "end": {
-                          "line": 111,
+                          "line": 112,
                           "column": 27
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 111,
+                        "line": 112,
                         "column": 16
                       },
                       "end": {
-                        "line": 111,
+                        "line": 112,
                         "column": 27
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 111,
+                      "line": 112,
                       "column": 8
                     },
                     "end": {
-                      "line": 111,
+                      "line": 112,
                       "column": 27
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 111,
+                    "line": 112,
                     "column": 8
                   },
                   "end": {
-                    "line": 111,
+                    "line": 112,
                     "column": 31
                   }
                 }
@@ -3801,11 +3883,11 @@
                     "name": "ttt",
                     "loc": {
                       "start": {
-                        "line": 112,
+                        "line": 113,
                         "column": 8
                       },
                       "end": {
-                        "line": 112,
+                        "line": 113,
                         "column": 8
                       }
                     }
@@ -3818,11 +3900,11 @@
                       "name": "test",
                       "loc": {
                         "start": {
-                          "line": 112,
+                          "line": 113,
                           "column": 14
                         },
                         "end": {
-                          "line": 112,
+                          "line": 113,
                           "column": 14
                         }
                       }
@@ -3832,44 +3914,44 @@
                       "name": "proposal",
                       "loc": {
                         "start": {
-                          "line": 112,
+                          "line": 113,
                           "column": 21
                         },
                         "end": {
-                          "line": 112,
+                          "line": 113,
                           "column": 21
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 112,
+                        "line": 113,
                         "column": 14
                       },
                       "end": {
-                        "line": 112,
+                        "line": 113,
                         "column": 21
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 112,
+                      "line": 113,
                       "column": 8
                     },
                     "end": {
-                      "line": 112,
+                      "line": 113,
                       "column": 21
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 112,
+                    "line": 113,
                     "column": 8
                   },
                   "end": {
-                    "line": 112,
+                    "line": 113,
                     "column": 29
                   }
                 }
@@ -3884,11 +3966,11 @@
                     "name": "txxx",
                     "loc": {
                       "start": {
-                        "line": 113,
+                        "line": 114,
                         "column": 8
                       },
                       "end": {
-                        "line": 113,
+                        "line": 114,
                         "column": 8
                       }
                     }
@@ -3901,11 +3983,11 @@
                       "name": "ttt",
                       "loc": {
                         "start": {
-                          "line": 113,
+                          "line": 114,
                           "column": 15
                         },
                         "end": {
-                          "line": 113,
+                          "line": 114,
                           "column": 15
                         }
                       }
@@ -3916,44 +3998,44 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 113,
+                          "line": 114,
                           "column": 21
                         },
                         "end": {
-                          "line": 113,
+                          "line": 114,
                           "column": 21
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 113,
+                        "line": 114,
                         "column": 15
                       },
                       "end": {
-                        "line": 113,
+                        "line": 114,
                         "column": 21
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 113,
+                      "line": 114,
                       "column": 8
                     },
                     "end": {
-                      "line": 113,
+                      "line": 114,
                       "column": 21
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 113,
+                    "line": 114,
                     "column": 8
                   },
                   "end": {
-                    "line": 113,
+                    "line": 114,
                     "column": 23
                   }
                 }
@@ -3968,11 +4050,11 @@
                     "name": "think",
                     "loc": {
                       "start": {
-                        "line": 114,
+                        "line": 115,
                         "column": 8
                       },
                       "end": {
-                        "line": 114,
+                        "line": 115,
                         "column": 8
                       }
                     }
@@ -3986,11 +4068,11 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 114,
+                          "line": 115,
                           "column": 16
                         },
                         "end": {
-                          "line": 114,
+                          "line": 115,
                           "column": 16
                         }
                       }
@@ -4000,44 +4082,44 @@
                       "name": "aaaaa",
                       "loc": {
                         "start": {
-                          "line": 114,
+                          "line": 115,
                           "column": 20
                         },
                         "end": {
-                          "line": 114,
+                          "line": 115,
                           "column": 20
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 114,
+                        "line": 115,
                         "column": 16
                       },
                       "end": {
-                        "line": 114,
+                        "line": 115,
                         "column": 20
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 114,
+                      "line": 115,
                       "column": 8
                     },
                     "end": {
-                      "line": 114,
+                      "line": 115,
                       "column": 20
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 114,
+                    "line": 115,
                     "column": 8
                   },
                   "end": {
-                    "line": 114,
+                    "line": 115,
                     "column": 25
                   }
                 }
@@ -4052,11 +4134,11 @@
                     "name": "cccc",
                     "loc": {
                       "start": {
-                        "line": 115,
+                        "line": 116,
                         "column": 8
                       },
                       "end": {
-                        "line": 115,
+                        "line": 116,
                         "column": 8
                       }
                     }
@@ -4088,11 +4170,11 @@
                                   "subdenomination": null,
                                   "loc": {
                                     "start": {
-                                      "line": 115,
+                                      "line": 116,
                                       "column": 15
                                     },
                                     "end": {
-                                      "line": 115,
+                                      "line": 116,
                                       "column": 15
                                     }
                                   }
@@ -4103,22 +4185,22 @@
                                   "subdenomination": null,
                                   "loc": {
                                     "start": {
-                                      "line": 115,
+                                      "line": 116,
                                       "column": 19
                                     },
                                     "end": {
-                                      "line": 115,
+                                      "line": 116,
                                       "column": 19
                                     }
                                   }
                                 },
                                 "loc": {
                                   "start": {
-                                    "line": 115,
+                                    "line": 116,
                                     "column": 15
                                   },
                                   "end": {
-                                    "line": 115,
+                                    "line": 116,
                                     "column": 19
                                   }
                                 }
@@ -4129,22 +4211,22 @@
                                 "subdenomination": null,
                                 "loc": {
                                   "start": {
-                                    "line": 115,
+                                    "line": 116,
                                     "column": 23
                                   },
                                   "end": {
-                                    "line": 115,
+                                    "line": 116,
                                     "column": 23
                                   }
                                 }
                               },
                               "loc": {
                                 "start": {
-                                  "line": 115,
+                                  "line": 116,
                                   "column": 15
                                 },
                                 "end": {
-                                  "line": 115,
+                                  "line": 116,
                                   "column": 23
                                 }
                               }
@@ -4155,22 +4237,22 @@
                               "subdenomination": null,
                               "loc": {
                                 "start": {
-                                  "line": 115,
+                                  "line": 116,
                                   "column": 26
                                 },
                                 "end": {
-                                  "line": 115,
+                                  "line": 116,
                                   "column": 26
                                 }
                               }
                             },
                             "loc": {
                               "start": {
-                                "line": 115,
+                                "line": 116,
                                 "column": 15
                               },
                               "end": {
-                                "line": 115,
+                                "line": 116,
                                 "column": 26
                               }
                             }
@@ -4181,22 +4263,22 @@
                             "subdenomination": null,
                             "loc": {
                               "start": {
-                                "line": 115,
+                                "line": 116,
                                 "column": 30
                               },
                               "end": {
-                                "line": 115,
+                                "line": 116,
                                 "column": 30
                               }
                             }
                           },
                           "loc": {
                             "start": {
-                              "line": 115,
+                              "line": 116,
                               "column": 15
                             },
                             "end": {
-                              "line": 115,
+                              "line": 116,
                               "column": 30
                             }
                           }
@@ -4206,22 +4288,22 @@
                           "name": "txxx",
                           "loc": {
                             "start": {
-                              "line": 115,
+                              "line": 116,
                               "column": 35
                             },
                             "end": {
-                              "line": 115,
+                              "line": 116,
                               "column": 35
                             }
                           }
                         },
                         "loc": {
                           "start": {
-                            "line": 115,
+                            "line": 116,
                             "column": 15
                           },
                           "end": {
-                            "line": 115,
+                            "line": 116,
                             "column": 35
                           }
                         }
@@ -4232,22 +4314,22 @@
                         "subdenomination": null,
                         "loc": {
                           "start": {
-                            "line": 115,
+                            "line": 116,
                             "column": 42
                           },
                           "end": {
-                            "line": 115,
+                            "line": 116,
                             "column": 42
                           }
                         }
                       },
                       "loc": {
                         "start": {
-                          "line": 115,
+                          "line": 116,
                           "column": 15
                         },
                         "end": {
-                          "line": 115,
+                          "line": 116,
                           "column": 42
                         }
                       }
@@ -4258,44 +4340,44 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 115,
+                          "line": 116,
                           "column": 46
                         },
                         "end": {
-                          "line": 115,
+                          "line": 116,
                           "column": 46
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 115,
+                        "line": 116,
                         "column": 15
                       },
                       "end": {
-                        "line": 115,
+                        "line": 116,
                         "column": 46
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 115,
+                      "line": 116,
                       "column": 8
                     },
                     "end": {
-                      "line": 115,
+                      "line": 116,
                       "column": 46
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 115,
+                    "line": 116,
                     "column": 8
                   },
                   "end": {
-                    "line": 115,
+                    "line": 116,
                     "column": 47
                   }
                 }
@@ -4310,11 +4392,11 @@
                     "name": "ccc",
                     "loc": {
                       "start": {
-                        "line": 116,
+                        "line": 117,
                         "column": 8
                       },
                       "end": {
-                        "line": 116,
+                        "line": 117,
                         "column": 8
                       }
                     }
@@ -4328,11 +4410,11 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 116,
+                          "line": 117,
                           "column": 14
                         },
                         "end": {
-                          "line": 116,
+                          "line": 117,
                           "column": 14
                         }
                       }
@@ -4346,11 +4428,11 @@
                           "name": "SafeMath",
                           "loc": {
                             "start": {
-                              "line": 116,
+                              "line": 117,
                               "column": 16
                             },
                             "end": {
-                              "line": 116,
+                              "line": 117,
                               "column": 16
                             }
                           }
@@ -4358,11 +4440,11 @@
                         "memberName": "add",
                         "loc": {
                           "start": {
-                            "line": 116,
+                            "line": 117,
                             "column": 16
                           },
                           "end": {
-                            "line": 116,
+                            "line": 117,
                             "column": 25
                           }
                         }
@@ -4374,11 +4456,11 @@
                           "subdenomination": null,
                           "loc": {
                             "start": {
-                              "line": 116,
+                              "line": 117,
                               "column": 29
                             },
                             "end": {
-                              "line": 116,
+                              "line": 117,
                               "column": 29
                             }
                           }
@@ -4388,11 +4470,11 @@
                           "name": "proposal",
                           "loc": {
                             "start": {
-                              "line": 116,
+                              "line": 117,
                               "column": 33
                             },
                             "end": {
-                              "line": 116,
+                              "line": 117,
                               "column": 33
                             }
                           }
@@ -4401,44 +4483,44 @@
                       "names": [],
                       "loc": {
                         "start": {
-                          "line": 116,
+                          "line": 117,
                           "column": 16
                         },
                         "end": {
-                          "line": 116,
+                          "line": 117,
                           "column": 41
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 116,
+                        "line": 117,
                         "column": 14
                       },
                       "end": {
-                        "line": 116,
+                        "line": 117,
                         "column": 41
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 116,
+                      "line": 117,
                       "column": 8
                     },
                     "end": {
-                      "line": 116,
+                      "line": 117,
                       "column": 41
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 116,
+                    "line": 117,
                     "column": 8
                   },
                   "end": {
-                    "line": 116,
+                    "line": 117,
                     "column": 42
                   }
                 }
@@ -4453,11 +4535,11 @@
                     "name": "spot1",
                     "loc": {
                       "start": {
-                        "line": 117,
+                        "line": 118,
                         "column": 8
                       },
                       "end": {
-                        "line": 117,
+                        "line": 118,
                         "column": 8
                       }
                     }
@@ -4471,11 +4553,11 @@
                         "name": "SafeMath",
                         "loc": {
                           "start": {
-                            "line": 117,
+                            "line": 118,
                             "column": 17
                           },
                           "end": {
-                            "line": 117,
+                            "line": 118,
                             "column": 17
                           }
                         }
@@ -4483,11 +4565,11 @@
                       "memberName": "add",
                       "loc": {
                         "start": {
-                          "line": 117,
+                          "line": 118,
                           "column": 17
                         },
                         "end": {
-                          "line": 117,
+                          "line": 118,
                           "column": 26
                         }
                       }
@@ -4498,11 +4580,11 @@
                         "name": "proposal",
                         "loc": {
                           "start": {
-                            "line": 117,
+                            "line": 118,
                             "column": 30
                           },
                           "end": {
-                            "line": 117,
+                            "line": 118,
                             "column": 30
                           }
                         }
@@ -4513,11 +4595,11 @@
                         "subdenomination": null,
                         "loc": {
                           "start": {
-                            "line": 117,
+                            "line": 118,
                             "column": 39
                           },
                           "end": {
-                            "line": 117,
+                            "line": 118,
                             "column": 39
                           }
                         }
@@ -4526,33 +4608,33 @@
                     "names": [],
                     "loc": {
                       "start": {
-                        "line": 117,
+                        "line": 118,
                         "column": 17
                       },
                       "end": {
-                        "line": 117,
+                        "line": 118,
                         "column": 41
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 117,
+                      "line": 118,
                       "column": 8
                     },
                     "end": {
-                      "line": 117,
+                      "line": 118,
                       "column": 41
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 117,
+                    "line": 118,
                     "column": 8
                   },
                   "end": {
-                    "line": 117,
+                    "line": 118,
                     "column": 42
                   }
                 }
@@ -4567,11 +4649,11 @@
                     "name": "spot2",
                     "loc": {
                       "start": {
-                        "line": 118,
+                        "line": 119,
                         "column": 8
                       },
                       "end": {
-                        "line": 118,
+                        "line": 119,
                         "column": 8
                       }
                     }
@@ -4585,11 +4667,11 @@
                         "name": "SafeMath",
                         "loc": {
                           "start": {
-                            "line": 118,
+                            "line": 119,
                             "column": 16
                           },
                           "end": {
-                            "line": 118,
+                            "line": 119,
                             "column": 16
                           }
                         }
@@ -4597,11 +4679,11 @@
                       "memberName": "add",
                       "loc": {
                         "start": {
-                          "line": 118,
+                          "line": 119,
                           "column": 16
                         },
                         "end": {
-                          "line": 118,
+                          "line": 119,
                           "column": 25
                         }
                       }
@@ -4612,11 +4694,11 @@
                         "name": "proposal",
                         "loc": {
                           "start": {
-                            "line": 118,
+                            "line": 119,
                             "column": 29
                           },
                           "end": {
-                            "line": 118,
+                            "line": 119,
                             "column": 29
                           }
                         }
@@ -4627,11 +4709,11 @@
                         "subdenomination": null,
                         "loc": {
                           "start": {
-                            "line": 118,
+                            "line": 119,
                             "column": 38
                           },
                           "end": {
-                            "line": 118,
+                            "line": 119,
                             "column": 38
                           }
                         }
@@ -4640,33 +4722,33 @@
                     "names": [],
                     "loc": {
                       "start": {
-                        "line": 118,
+                        "line": 119,
                         "column": 16
                       },
                       "end": {
-                        "line": 118,
+                        "line": 119,
                         "column": 40
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 118,
+                      "line": 119,
                       "column": 8
                     },
                     "end": {
-                      "line": 118,
+                      "line": 119,
                       "column": 40
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 118,
+                    "line": 119,
                     "column": 8
                   },
                   "end": {
-                    "line": 118,
+                    "line": 119,
                     "column": 41
                   }
                 }
@@ -4685,11 +4767,11 @@
                         "name": "proposals",
                         "loc": {
                           "start": {
-                            "line": 121,
+                            "line": 122,
                             "column": 8
                           },
                           "end": {
-                            "line": 121,
+                            "line": 122,
                             "column": 8
                           }
                         }
@@ -4699,22 +4781,22 @@
                         "name": "proposal",
                         "loc": {
                           "start": {
-                            "line": 121,
+                            "line": 122,
                             "column": 18
                           },
                           "end": {
-                            "line": 121,
+                            "line": 122,
                             "column": 18
                           }
                         }
                       },
                       "loc": {
                         "start": {
-                          "line": 121,
+                          "line": 122,
                           "column": 8
                         },
                         "end": {
-                          "line": 121,
+                          "line": 122,
                           "column": 26
                         }
                       }
@@ -4722,11 +4804,11 @@
                     "memberName": "voteCount",
                     "loc": {
                       "start": {
-                        "line": 121,
+                        "line": 122,
                         "column": 8
                       },
                       "end": {
-                        "line": 121,
+                        "line": 122,
                         "column": 28
                       }
                     }
@@ -4738,11 +4820,11 @@
                       "name": "sender",
                       "loc": {
                         "start": {
-                          "line": 121,
+                          "line": 122,
                           "column": 41
                         },
                         "end": {
-                          "line": 121,
+                          "line": 122,
                           "column": 41
                         }
                       }
@@ -4750,33 +4832,33 @@
                     "memberName": "weight",
                     "loc": {
                       "start": {
-                        "line": 121,
+                        "line": 122,
                         "column": 41
                       },
                       "end": {
-                        "line": 121,
+                        "line": 122,
                         "column": 48
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 121,
+                      "line": 122,
                       "column": 8
                     },
                     "end": {
-                      "line": 121,
+                      "line": 122,
                       "column": 48
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 121,
+                    "line": 122,
                     "column": 8
                   },
                   "end": {
-                    "line": 121,
+                    "line": 122,
                     "column": 54
                   }
                 }
@@ -4788,7 +4870,7 @@
                 "column": 70
               },
               "end": {
-                "line": 122,
+                "line": 123,
                 "column": 4
               }
             }
@@ -4803,7 +4885,7 @@
               "column": 4
             },
             "end": {
-              "line": 122,
+              "line": 123,
               "column": 4
             }
           }
@@ -4820,11 +4902,11 @@
                 "name": "uint",
                 "loc": {
                   "start": {
-                    "line": 129,
+                    "line": 130,
                     "column": 21
                   },
                   "end": {
-                    "line": 129,
+                    "line": 130,
                     "column": 21
                   }
                 }
@@ -4835,11 +4917,11 @@
               "isIndexed": false,
               "loc": {
                 "start": {
-                  "line": 129,
+                  "line": 130,
                   "column": 21
                 },
                 "end": {
-                  "line": 129,
+                  "line": 130,
                   "column": 26
                 }
               }
@@ -4858,11 +4940,11 @@
                       "name": "uint",
                       "loc": {
                         "start": {
-                          "line": 131,
+                          "line": 132,
                           "column": 8
                         },
                         "end": {
-                          "line": 131,
+                          "line": 132,
                           "column": 8
                         }
                       }
@@ -4873,11 +4955,11 @@
                     "isIndexed": false,
                     "loc": {
                       "start": {
-                        "line": 131,
+                        "line": 132,
                         "column": 8
                       },
                       "end": {
-                        "line": 131,
+                        "line": 132,
                         "column": 13
                       }
                     }
@@ -4889,22 +4971,22 @@
                   "subdenomination": null,
                   "loc": {
                     "start": {
-                      "line": 131,
+                      "line": 132,
                       "column": 32
                     },
                     "end": {
-                      "line": 131,
+                      "line": 132,
                       "column": 32
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 131,
+                    "line": 132,
                     "column": 8
                   },
                   "end": {
-                    "line": 131,
+                    "line": 132,
                     "column": 33
                   }
                 }
@@ -4918,11 +5000,11 @@
                     "name": "require",
                     "loc": {
                       "start": {
-                        "line": 132,
+                        "line": 133,
                         "column": 8
                       },
                       "end": {
-                        "line": 132,
+                        "line": 133,
                         "column": 8
                       }
                     }
@@ -4938,11 +5020,11 @@
                           "name": "tx",
                           "loc": {
                             "start": {
-                              "line": 132,
+                              "line": 133,
                               "column": 16
                             },
                             "end": {
-                              "line": 132,
+                              "line": 133,
                               "column": 16
                             }
                           }
@@ -4950,11 +5032,11 @@
                         "memberName": "origin",
                         "loc": {
                           "start": {
-                            "line": 132,
+                            "line": 133,
                             "column": 16
                           },
                           "end": {
-                            "line": 132,
+                            "line": 133,
                             "column": 19
                           }
                         }
@@ -4964,22 +5046,22 @@
                         "name": "owner",
                         "loc": {
                           "start": {
-                            "line": 132,
+                            "line": 133,
                             "column": 29
                           },
                           "end": {
-                            "line": 132,
+                            "line": 133,
                             "column": 29
                           }
                         }
                       },
                       "loc": {
                         "start": {
-                          "line": 132,
+                          "line": 133,
                           "column": 16
                         },
                         "end": {
-                          "line": 132,
+                          "line": 133,
                           "column": 29
                         }
                       }
@@ -4988,22 +5070,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 132,
+                      "line": 133,
                       "column": 8
                     },
                     "end": {
-                      "line": 132,
+                      "line": 133,
                       "column": 34
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 132,
+                    "line": 133,
                     "column": 8
                   },
                   "end": {
-                    "line": 132,
+                    "line": 133,
                     "column": 35
                   }
                 }
@@ -5020,11 +5102,11 @@
                         "name": "uint",
                         "loc": {
                           "start": {
-                            "line": 133,
+                            "line": 134,
                             "column": 13
                           },
                           "end": {
-                            "line": 133,
+                            "line": 134,
                             "column": 13
                           }
                         }
@@ -5035,11 +5117,11 @@
                       "isIndexed": false,
                       "loc": {
                         "start": {
-                          "line": 133,
+                          "line": 134,
                           "column": 13
                         },
                         "end": {
-                          "line": 133,
+                          "line": 134,
                           "column": 18
                         }
                       }
@@ -5051,22 +5133,22 @@
                     "subdenomination": null,
                     "loc": {
                       "start": {
-                        "line": 133,
+                        "line": 134,
                         "column": 22
                       },
                       "end": {
-                        "line": 133,
+                        "line": 134,
                         "column": 22
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 133,
+                      "line": 134,
                       "column": 13
                     },
                     "end": {
-                      "line": 133,
+                      "line": 134,
                       "column": 23
                     }
                   }
@@ -5079,11 +5161,11 @@
                     "name": "p",
                     "loc": {
                       "start": {
-                        "line": 133,
+                        "line": 134,
                         "column": 25
                       },
                       "end": {
-                        "line": 133,
+                        "line": 134,
                         "column": 25
                       }
                     }
@@ -5095,11 +5177,11 @@
                       "name": "proposals",
                       "loc": {
                         "start": {
-                          "line": 133,
+                          "line": 134,
                           "column": 29
                         },
                         "end": {
-                          "line": 133,
+                          "line": 134,
                           "column": 29
                         }
                       }
@@ -5107,22 +5189,22 @@
                     "memberName": "length",
                     "loc": {
                       "start": {
-                        "line": 133,
+                        "line": 134,
                         "column": 29
                       },
                       "end": {
-                        "line": 133,
+                        "line": 134,
                         "column": 39
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 133,
+                      "line": 134,
                       "column": 25
                     },
                     "end": {
-                      "line": 133,
+                      "line": 134,
                       "column": 39
                     }
                   }
@@ -5137,11 +5219,11 @@
                       "name": "p",
                       "loc": {
                         "start": {
-                          "line": 133,
+                          "line": 134,
                           "column": 47
                         },
                         "end": {
-                          "line": 133,
+                          "line": 134,
                           "column": 47
                         }
                       }
@@ -5149,11 +5231,11 @@
                     "isPrefix": false,
                     "loc": {
                       "start": {
-                        "line": 133,
+                        "line": 134,
                         "column": 47
                       },
                       "end": {
-                        "line": 133,
+                        "line": 134,
                         "column": 48
                       }
                     }
@@ -5176,11 +5258,11 @@
                               "name": "proposals",
                               "loc": {
                                 "start": {
-                                  "line": 134,
+                                  "line": 135,
                                   "column": 16
                                 },
                                 "end": {
-                                  "line": 134,
+                                  "line": 135,
                                   "column": 16
                                 }
                               }
@@ -5190,22 +5272,22 @@
                               "name": "p",
                               "loc": {
                                 "start": {
-                                  "line": 134,
+                                  "line": 135,
                                   "column": 26
                                 },
                                 "end": {
-                                  "line": 134,
+                                  "line": 135,
                                   "column": 26
                                 }
                               }
                             },
                             "loc": {
                               "start": {
-                                "line": 134,
+                                "line": 135,
                                 "column": 16
                               },
                               "end": {
-                                "line": 134,
+                                "line": 135,
                                 "column": 27
                               }
                             }
@@ -5213,11 +5295,11 @@
                           "memberName": "voteCount",
                           "loc": {
                             "start": {
-                              "line": 134,
+                              "line": 135,
                               "column": 16
                             },
                             "end": {
-                              "line": 134,
+                              "line": 135,
                               "column": 29
                             }
                           }
@@ -5227,22 +5309,22 @@
                           "name": "winningVoteCount",
                           "loc": {
                             "start": {
-                              "line": 134,
+                              "line": 135,
                               "column": 41
                             },
                             "end": {
-                              "line": 134,
+                              "line": 135,
                               "column": 41
                             }
                           }
                         },
                         "loc": {
                           "start": {
-                            "line": 134,
+                            "line": 135,
                             "column": 16
                           },
                           "end": {
-                            "line": 134,
+                            "line": 135,
                             "column": 41
                           }
                         }
@@ -5260,11 +5342,11 @@
                                 "name": "winningVoteCount",
                                 "loc": {
                                   "start": {
-                                    "line": 135,
+                                    "line": 136,
                                     "column": 16
                                   },
                                   "end": {
-                                    "line": 135,
+                                    "line": 136,
                                     "column": 16
                                   }
                                 }
@@ -5278,11 +5360,11 @@
                                     "name": "proposals",
                                     "loc": {
                                       "start": {
-                                        "line": 135,
+                                        "line": 136,
                                         "column": 35
                                       },
                                       "end": {
-                                        "line": 135,
+                                        "line": 136,
                                         "column": 35
                                       }
                                     }
@@ -5292,22 +5374,22 @@
                                     "name": "p",
                                     "loc": {
                                       "start": {
-                                        "line": 135,
+                                        "line": 136,
                                         "column": 45
                                       },
                                       "end": {
-                                        "line": 135,
+                                        "line": 136,
                                         "column": 45
                                       }
                                     }
                                   },
                                   "loc": {
                                     "start": {
-                                      "line": 135,
+                                      "line": 136,
                                       "column": 35
                                     },
                                     "end": {
-                                      "line": 135,
+                                      "line": 136,
                                       "column": 46
                                     }
                                   }
@@ -5315,33 +5397,33 @@
                                 "memberName": "voteCount",
                                 "loc": {
                                   "start": {
-                                    "line": 135,
+                                    "line": 136,
                                     "column": 35
                                   },
                                   "end": {
-                                    "line": 135,
+                                    "line": 136,
                                     "column": 48
                                   }
                                 }
                               },
                               "loc": {
                                 "start": {
-                                  "line": 135,
+                                  "line": 136,
                                   "column": 16
                                 },
                                 "end": {
-                                  "line": 135,
+                                  "line": 136,
                                   "column": 48
                                 }
                               }
                             },
                             "loc": {
                               "start": {
-                                "line": 135,
+                                "line": 136,
                                 "column": 16
                               },
                               "end": {
-                                "line": 135,
+                                "line": 136,
                                 "column": 57
                               }
                             }
@@ -5356,11 +5438,11 @@
                                 "name": "winningProposal_",
                                 "loc": {
                                   "start": {
-                                    "line": 136,
+                                    "line": 137,
                                     "column": 16
                                   },
                                   "end": {
-                                    "line": 136,
+                                    "line": 137,
                                     "column": 16
                                   }
                                 }
@@ -5370,33 +5452,33 @@
                                 "name": "p",
                                 "loc": {
                                   "start": {
-                                    "line": 136,
+                                    "line": 137,
                                     "column": 35
                                   },
                                   "end": {
-                                    "line": 136,
+                                    "line": 137,
                                     "column": 35
                                   }
                                 }
                               },
                               "loc": {
                                 "start": {
-                                  "line": 136,
+                                  "line": 137,
                                   "column": 16
                                 },
                                 "end": {
-                                  "line": 136,
+                                  "line": 137,
                                   "column": 35
                                 }
                               }
                             },
                             "loc": {
                               "start": {
-                                "line": 136,
+                                "line": 137,
                                 "column": 16
                               },
                               "end": {
-                                "line": 136,
+                                "line": 137,
                                 "column": 36
                               }
                             }
@@ -5404,11 +5486,11 @@
                         ],
                         "loc": {
                           "start": {
-                            "line": 134,
+                            "line": 135,
                             "column": 59
                           },
                           "end": {
-                            "line": 137,
+                            "line": 138,
                             "column": 12
                           }
                         }
@@ -5416,11 +5498,11 @@
                       "falseBody": null,
                       "loc": {
                         "start": {
-                          "line": 134,
+                          "line": 135,
                           "column": 12
                         },
                         "end": {
-                          "line": 137,
+                          "line": 138,
                           "column": 12
                         }
                       }
@@ -5428,22 +5510,22 @@
                   ],
                   "loc": {
                     "start": {
-                      "line": 133,
+                      "line": 134,
                       "column": 52
                     },
                     "end": {
-                      "line": 138,
+                      "line": 139,
                       "column": 8
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 133,
+                    "line": 134,
                     "column": 8
                   },
                   "end": {
-                    "line": 138,
+                    "line": 139,
                     "column": 8
                   }
                 }
@@ -5451,11 +5533,11 @@
             ],
             "loc": {
               "start": {
-                "line": 130,
+                "line": 131,
                 "column": 4
               },
               "end": {
-                "line": 139,
+                "line": 140,
                 "column": 4
               }
             }
@@ -5466,11 +5548,11 @@
           "stateMutability": "view",
           "loc": {
             "start": {
-              "line": 128,
+              "line": 129,
               "column": 4
             },
             "end": {
-              "line": 139,
+              "line": 140,
               "column": 4
             }
           }
@@ -5487,11 +5569,11 @@
                 "name": "bytes32",
                 "loc": {
                   "start": {
-                    "line": 146,
+                    "line": 147,
                     "column": 21
                   },
                   "end": {
-                    "line": 146,
+                    "line": 147,
                     "column": 21
                   }
                 }
@@ -5502,11 +5584,11 @@
               "isIndexed": false,
               "loc": {
                 "start": {
-                  "line": 146,
+                  "line": 147,
                   "column": 21
                 },
                 "end": {
-                  "line": 146,
+                  "line": 147,
                   "column": 29
                 }
               }
@@ -5525,11 +5607,11 @@
                     "name": "winnerName_",
                     "loc": {
                       "start": {
-                        "line": 148,
+                        "line": 149,
                         "column": 8
                       },
                       "end": {
-                        "line": 148,
+                        "line": 149,
                         "column": 8
                       }
                     }
@@ -5543,11 +5625,11 @@
                         "name": "proposals",
                         "loc": {
                           "start": {
-                            "line": 148,
+                            "line": 149,
                             "column": 22
                           },
                           "end": {
-                            "line": 148,
+                            "line": 149,
                             "column": 22
                           }
                         }
@@ -5559,11 +5641,11 @@
                           "name": "winningProposal",
                           "loc": {
                             "start": {
-                              "line": 148,
+                              "line": 149,
                               "column": 32
                             },
                             "end": {
-                              "line": 148,
+                              "line": 149,
                               "column": 32
                             }
                           }
@@ -5572,22 +5654,22 @@
                         "names": [],
                         "loc": {
                           "start": {
-                            "line": 148,
+                            "line": 149,
                             "column": 32
                           },
                           "end": {
-                            "line": 148,
+                            "line": 149,
                             "column": 48
                           }
                         }
                       },
                       "loc": {
                         "start": {
-                          "line": 148,
+                          "line": 149,
                           "column": 22
                         },
                         "end": {
-                          "line": 148,
+                          "line": 149,
                           "column": 49
                         }
                       }
@@ -5595,33 +5677,33 @@
                     "memberName": "name",
                     "loc": {
                       "start": {
-                        "line": 148,
+                        "line": 149,
                         "column": 22
                       },
                       "end": {
-                        "line": 148,
+                        "line": 149,
                         "column": 51
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 148,
+                      "line": 149,
                       "column": 8
                     },
                     "end": {
-                      "line": 148,
+                      "line": 149,
                       "column": 51
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 148,
+                    "line": 149,
                     "column": 8
                   },
                   "end": {
-                    "line": 148,
+                    "line": 149,
                     "column": 55
                   }
                 }
@@ -5637,11 +5719,11 @@
                       "name": "test",
                       "loc": {
                         "start": {
-                          "line": 149,
+                          "line": 150,
                           "column": 8
                         },
                         "end": {
-                          "line": 149,
+                          "line": 150,
                           "column": 8
                         }
                       }
@@ -5649,11 +5731,11 @@
                     "memberName": "delegatecall",
                     "loc": {
                       "start": {
-                        "line": 149,
+                        "line": 150,
                         "column": 8
                       },
                       "end": {
-                        "line": 149,
+                        "line": 150,
                         "column": 13
                       }
                     }
@@ -5664,11 +5746,11 @@
                       "value": "123",
                       "loc": {
                         "start": {
-                          "line": 149,
+                          "line": 150,
                           "column": 26
                         },
                         "end": {
-                          "line": 149,
+                          "line": 150,
                           "column": 26
                         }
                       }
@@ -5677,22 +5759,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 149,
+                      "line": 150,
                       "column": 8
                     },
                     "end": {
-                      "line": 149,
+                      "line": 150,
                       "column": 31
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 149,
+                    "line": 150,
                     "column": 8
                   },
                   "end": {
-                    "line": 149,
+                    "line": 150,
                     "column": 32
                   }
                 }
@@ -5700,11 +5782,11 @@
             ],
             "loc": {
               "start": {
-                "line": 147,
+                "line": 148,
                 "column": 4
               },
               "end": {
-                "line": 150,
+                "line": 151,
                 "column": 4
               }
             }
@@ -5715,11 +5797,11 @@
           "stateMutability": "view",
           "loc": {
             "start": {
-              "line": 145,
+              "line": 146,
               "column": 4
             },
             "end": {
-              "line": 150,
+              "line": 151,
               "column": 4
             }
           }
@@ -5742,11 +5824,11 @@
                       "name": "uint",
                       "loc": {
                         "start": {
-                          "line": 153,
+                          "line": 154,
                           "column": 8
                         },
                         "end": {
-                          "line": 153,
+                          "line": 154,
                           "column": 8
                         }
                       }
@@ -5757,11 +5839,11 @@
                     "isIndexed": false,
                     "loc": {
                       "start": {
-                        "line": 153,
+                        "line": 154,
                         "column": 8
                       },
                       "end": {
-                        "line": 153,
+                        "line": 154,
                         "column": 13
                       }
                     }
@@ -5774,11 +5856,11 @@
                     "name": "balances",
                     "loc": {
                       "start": {
-                        "line": 153,
+                        "line": 154,
                         "column": 19
                       },
                       "end": {
-                        "line": 153,
+                        "line": 154,
                         "column": 19
                       }
                     }
@@ -5790,11 +5872,11 @@
                       "name": "msg",
                       "loc": {
                         "start": {
-                          "line": 153,
+                          "line": 154,
                           "column": 28
                         },
                         "end": {
-                          "line": 153,
+                          "line": 154,
                           "column": 28
                         }
                       }
@@ -5802,33 +5884,33 @@
                     "memberName": "sender",
                     "loc": {
                       "start": {
-                        "line": 153,
+                        "line": 154,
                         "column": 28
                       },
                       "end": {
-                        "line": 153,
+                        "line": 154,
                         "column": 32
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 153,
+                      "line": 154,
                       "column": 19
                     },
                     "end": {
-                      "line": 153,
+                      "line": 154,
                       "column": 38
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 153,
+                    "line": 154,
                     "column": 8
                   },
                   "end": {
-                    "line": 153,
+                    "line": 154,
                     "column": 39
                   }
                 }
@@ -5845,11 +5927,11 @@
                       "name": "balances",
                       "loc": {
                         "start": {
-                          "line": 154,
+                          "line": 155,
                           "column": 8
                         },
                         "end": {
-                          "line": 154,
+                          "line": 155,
                           "column": 8
                         }
                       }
@@ -5861,11 +5943,11 @@
                         "name": "msg",
                         "loc": {
                           "start": {
-                            "line": 154,
+                            "line": 155,
                             "column": 17
                           },
                           "end": {
-                            "line": 154,
+                            "line": 155,
                             "column": 17
                           }
                         }
@@ -5873,22 +5955,22 @@
                       "memberName": "sender",
                       "loc": {
                         "start": {
-                          "line": 154,
+                          "line": 155,
                           "column": 17
                         },
                         "end": {
-                          "line": 154,
+                          "line": 155,
                           "column": 21
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 154,
+                        "line": 155,
                         "column": 8
                       },
                       "end": {
-                        "line": 154,
+                        "line": 155,
                         "column": 27
                       }
                     }
@@ -5899,33 +5981,33 @@
                     "subdenomination": null,
                     "loc": {
                       "start": {
-                        "line": 154,
+                        "line": 155,
                         "column": 31
                       },
                       "end": {
-                        "line": 154,
+                        "line": 155,
                         "column": 31
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 154,
+                      "line": 155,
                       "column": 8
                     },
                     "end": {
-                      "line": 154,
+                      "line": 155,
                       "column": 31
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 154,
+                    "line": 155,
                     "column": 8
                   },
                   "end": {
-                    "line": 154,
+                    "line": 155,
                     "column": 32
                   }
                 }
@@ -5939,11 +6021,11 @@
                     "name": "require",
                     "loc": {
                       "start": {
-                        "line": 155,
+                        "line": 156,
                         "column": 8
                       },
                       "end": {
-                        "line": 155,
+                        "line": 156,
                         "column": 8
                       }
                     }
@@ -5957,11 +6039,11 @@
                         "name": "bal",
                         "loc": {
                           "start": {
-                            "line": 155,
+                            "line": 156,
                             "column": 16
                           },
                           "end": {
-                            "line": 155,
+                            "line": 156,
                             "column": 16
                           }
                         }
@@ -5972,22 +6054,22 @@
                         "subdenomination": null,
                         "loc": {
                           "start": {
-                            "line": 155,
+                            "line": 156,
                             "column": 22
                           },
                           "end": {
-                            "line": 155,
+                            "line": 156,
                             "column": 22
                           }
                         }
                       },
                       "loc": {
                         "start": {
-                          "line": 155,
+                          "line": 156,
                           "column": 16
                         },
                         "end": {
-                          "line": 155,
+                          "line": 156,
                           "column": 22
                         }
                       }
@@ -5996,22 +6078,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 155,
+                      "line": 156,
                       "column": 8
                     },
                     "end": {
-                      "line": 155,
+                      "line": 156,
                       "column": 23
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 155,
+                    "line": 156,
                     "column": 8
                   },
                   "end": {
-                    "line": 155,
+                    "line": 156,
                     "column": 24
                   }
                 }
@@ -6027,11 +6109,11 @@
                       "name": "bool",
                       "loc": {
                         "start": {
-                          "line": 157,
+                          "line": 158,
                           "column": 9
                         },
                         "end": {
-                          "line": 157,
+                          "line": 158,
                           "column": 9
                         }
                       }
@@ -6041,11 +6123,11 @@
                     "isIndexed": false,
                     "loc": {
                       "start": {
-                        "line": 157,
+                        "line": 158,
                         "column": 9
                       },
                       "end": {
-                        "line": 157,
+                        "line": 158,
                         "column": 14
                       }
                     }
@@ -6065,11 +6147,11 @@
                           "name": "msg",
                           "loc": {
                             "start": {
-                              "line": 157,
+                              "line": 158,
                               "column": 23
                             },
                             "end": {
-                              "line": 157,
+                              "line": 158,
                               "column": 23
                             }
                           }
@@ -6077,11 +6159,11 @@
                         "memberName": "sender",
                         "loc": {
                           "start": {
-                            "line": 157,
+                            "line": 158,
                             "column": 23
                           },
                           "end": {
-                            "line": 157,
+                            "line": 158,
                             "column": 27
                           }
                         }
@@ -6089,11 +6171,11 @@
                       "memberName": "call",
                       "loc": {
                         "start": {
-                          "line": 157,
+                          "line": 158,
                           "column": 23
                         },
                         "end": {
-                          "line": 157,
+                          "line": 158,
                           "column": 34
                         }
                       }
@@ -6101,11 +6183,11 @@
                     "memberName": "value",
                     "loc": {
                       "start": {
-                        "line": 157,
+                        "line": 158,
                         "column": 23
                       },
                       "end": {
-                        "line": 157,
+                        "line": 158,
                         "column": 39
                       }
                     }
@@ -6117,11 +6199,11 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 157,
+                          "line": 158,
                           "column": 45
                         },
                         "end": {
-                          "line": 157,
+                          "line": 158,
                           "column": 45
                         }
                       }
@@ -6130,22 +6212,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 157,
+                      "line": 158,
                       "column": 23
                     },
                     "end": {
-                      "line": 157,
+                      "line": 158,
                       "column": 46
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 157,
+                    "line": 158,
                     "column": 8
                   },
                   "end": {
-                    "line": 157,
+                    "line": 158,
                     "column": 47
                   }
                 }
@@ -6159,11 +6241,11 @@
                     "name": "require",
                     "loc": {
                       "start": {
-                        "line": 158,
+                        "line": 159,
                         "column": 8
                       },
                       "end": {
-                        "line": 158,
+                        "line": 159,
                         "column": 8
                       }
                     }
@@ -6174,11 +6256,11 @@
                       "name": "sent",
                       "loc": {
                         "start": {
-                          "line": 158,
+                          "line": 159,
                           "column": 16
                         },
                         "end": {
-                          "line": 158,
+                          "line": 159,
                           "column": 16
                         }
                       }
@@ -6188,11 +6270,11 @@
                       "value": "Failed to send Ether",
                       "loc": {
                         "start": {
-                          "line": 158,
+                          "line": 159,
                           "column": 22
                         },
                         "end": {
-                          "line": 158,
+                          "line": 159,
                           "column": 22
                         }
                       }
@@ -6201,22 +6283,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 158,
+                      "line": 159,
                       "column": 8
                     },
                     "end": {
-                      "line": 158,
+                      "line": 159,
                       "column": 44
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 158,
+                    "line": 159,
                     "column": 8
                   },
                   "end": {
-                    "line": 158,
+                    "line": 159,
                     "column": 45
                   }
                 }
@@ -6233,11 +6315,11 @@
                       "name": "balances",
                       "loc": {
                         "start": {
-                          "line": 160,
+                          "line": 161,
                           "column": 8
                         },
                         "end": {
-                          "line": 160,
+                          "line": 161,
                           "column": 8
                         }
                       }
@@ -6249,11 +6331,11 @@
                         "name": "msg",
                         "loc": {
                           "start": {
-                            "line": 160,
+                            "line": 161,
                             "column": 17
                           },
                           "end": {
-                            "line": 160,
+                            "line": 161,
                             "column": 17
                           }
                         }
@@ -6261,22 +6343,22 @@
                       "memberName": "sender",
                       "loc": {
                         "start": {
-                          "line": 160,
+                          "line": 161,
                           "column": 17
                         },
                         "end": {
-                          "line": 160,
+                          "line": 161,
                           "column": 21
                         }
                       }
                     },
                     "loc": {
                       "start": {
-                        "line": 160,
+                        "line": 161,
                         "column": 8
                       },
                       "end": {
-                        "line": 160,
+                        "line": 161,
                         "column": 27
                       }
                     }
@@ -6287,33 +6369,33 @@
                     "subdenomination": null,
                     "loc": {
                       "start": {
-                        "line": 160,
+                        "line": 161,
                         "column": 31
                       },
                       "end": {
-                        "line": 160,
+                        "line": 161,
                         "column": 31
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 160,
+                      "line": 161,
                       "column": 8
                     },
                     "end": {
-                      "line": 160,
+                      "line": 161,
                       "column": 31
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 160,
+                    "line": 161,
                     "column": 8
                   },
                   "end": {
-                    "line": 160,
+                    "line": 161,
                     "column": 32
                   }
                 }
@@ -6321,11 +6403,11 @@
             ],
             "loc": {
               "start": {
-                "line": 152,
+                "line": 153,
                 "column": 31
               },
               "end": {
-                "line": 161,
+                "line": 162,
                 "column": 4
               }
             }
@@ -6336,11 +6418,11 @@
           "stateMutability": null,
           "loc": {
             "start": {
-              "line": 152,
+              "line": 153,
               "column": 4
             },
             "end": {
-              "line": 161,
+              "line": 162,
               "column": 4
             }
           }
@@ -6353,7 +6435,7 @@
           "column": 0
         },
         "end": {
-          "line": 162,
+          "line": 163,
           "column": 0
         }
       }
@@ -6374,11 +6456,11 @@
                 "namePath": "Coin",
                 "loc": {
                   "start": {
-                    "line": 166,
+                    "line": 167,
                     "column": 18
                   },
                   "end": {
-                    "line": 166,
+                    "line": 167,
                     "column": 18
                   }
                 }
@@ -6389,11 +6471,11 @@
               "isIndexed": false,
               "loc": {
                 "start": {
-                  "line": 166,
+                  "line": 167,
                   "column": 18
                 },
                 "end": {
-                  "line": 166,
+                  "line": 167,
                   "column": 23
                 }
               }
@@ -6414,11 +6496,11 @@
                       "name": "coin",
                       "loc": {
                         "start": {
-                          "line": 167,
+                          "line": 168,
                           "column": 12
                         },
                         "end": {
-                          "line": 167,
+                          "line": 168,
                           "column": 12
                         }
                       }
@@ -6426,11 +6508,11 @@
                     "memberName": "call",
                     "loc": {
                       "start": {
-                        "line": 167,
+                        "line": 168,
                         "column": 12
                       },
                       "end": {
-                        "line": 167,
+                        "line": 168,
                         "column": 17
                       }
                     }
@@ -6442,11 +6524,11 @@
                       "subdenomination": null,
                       "loc": {
                         "start": {
-                          "line": 167,
+                          "line": 168,
                           "column": 22
                         },
                         "end": {
-                          "line": 167,
+                          "line": 168,
                           "column": 22
                         }
                       }
@@ -6455,22 +6537,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 167,
+                      "line": 168,
                       "column": 12
                     },
                     "end": {
-                      "line": 167,
+                      "line": 168,
                       "column": 32
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 167,
+                    "line": 168,
                     "column": 12
                   },
                   "end": {
-                    "line": 167,
+                    "line": 168,
                     "column": 33
                   }
                 }
@@ -6484,11 +6566,11 @@
                     "name": "require",
                     "loc": {
                       "start": {
-                        "line": 168,
+                        "line": 169,
                         "column": 12
                       },
                       "end": {
-                        "line": 168,
+                        "line": 169,
                         "column": 12
                       }
                     }
@@ -6504,11 +6586,11 @@
                           "name": "tx",
                           "loc": {
                             "start": {
-                              "line": 168,
+                              "line": 169,
                               "column": 20
                             },
                             "end": {
-                              "line": 168,
+                              "line": 169,
                               "column": 20
                             }
                           }
@@ -6516,11 +6598,11 @@
                         "memberName": "origin",
                         "loc": {
                           "start": {
-                            "line": 168,
+                            "line": 169,
                             "column": 20
                           },
                           "end": {
-                            "line": 168,
+                            "line": 169,
                             "column": 23
                           }
                         }
@@ -6530,22 +6612,22 @@
                         "name": "owner",
                         "loc": {
                           "start": {
-                            "line": 168,
+                            "line": 169,
                             "column": 33
                           },
                           "end": {
-                            "line": 168,
+                            "line": 169,
                             "column": 33
                           }
                         }
                       },
                       "loc": {
                         "start": {
-                          "line": 168,
+                          "line": 169,
                           "column": 20
                         },
                         "end": {
-                          "line": 168,
+                          "line": 169,
                           "column": 33
                         }
                       }
@@ -6554,22 +6636,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 168,
+                      "line": 169,
                       "column": 12
                     },
                     "end": {
-                      "line": 168,
+                      "line": 169,
                       "column": 38
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 168,
+                    "line": 169,
                     "column": 12
                   },
                   "end": {
-                    "line": 168,
+                    "line": 169,
                     "column": 39
                   }
                 }
@@ -6577,11 +6659,11 @@
             ],
             "loc": {
               "start": {
-                "line": 166,
+                "line": 167,
                 "column": 36
               },
               "end": {
-                "line": 169,
+                "line": 170,
                 "column": 4
               }
             }
@@ -6592,11 +6674,11 @@
           "stateMutability": null,
           "loc": {
             "start": {
-              "line": 166,
+              "line": 167,
               "column": 4
             },
             "end": {
-              "line": 169,
+              "line": 170,
               "column": 4
             }
           }
@@ -6618,11 +6700,11 @@
                     "name": "require",
                     "loc": {
                       "start": {
-                        "line": 171,
+                        "line": 172,
                         "column": 7
                       },
                       "end": {
-                        "line": 171,
+                        "line": 172,
                         "column": 7
                       }
                     }
@@ -6637,11 +6719,11 @@
                           "name": "fibonacciLibrary",
                           "loc": {
                             "start": {
-                              "line": 171,
+                              "line": 172,
                               "column": 15
                             },
                             "end": {
-                              "line": 171,
+                              "line": 172,
                               "column": 15
                             }
                           }
@@ -6649,11 +6731,11 @@
                         "memberName": "delegatecall",
                         "loc": {
                           "start": {
-                            "line": 171,
+                            "line": 172,
                             "column": 15
                           },
                           "end": {
-                            "line": 171,
+                            "line": 172,
                             "column": 32
                           }
                         }
@@ -6666,11 +6748,11 @@
                             "name": "msg",
                             "loc": {
                               "start": {
-                                "line": 171,
+                                "line": 172,
                                 "column": 45
                               },
                               "end": {
-                                "line": 171,
+                                "line": 172,
                                 "column": 45
                               }
                             }
@@ -6678,11 +6760,11 @@
                           "memberName": "data",
                           "loc": {
                             "start": {
-                              "line": 171,
+                              "line": 172,
                               "column": 45
                             },
                             "end": {
-                              "line": 171,
+                              "line": 172,
                               "column": 49
                             }
                           }
@@ -6691,11 +6773,11 @@
                       "names": [],
                       "loc": {
                         "start": {
-                          "line": 171,
+                          "line": 172,
                           "column": 15
                         },
                         "end": {
-                          "line": 171,
+                          "line": 172,
                           "column": 53
                         }
                       }
@@ -6704,22 +6786,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 171,
+                      "line": 172,
                       "column": 7
                     },
                     "end": {
-                      "line": 171,
+                      "line": 172,
                       "column": 54
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 171,
+                    "line": 172,
                     "column": 7
                   },
                   "end": {
-                    "line": 171,
+                    "line": 172,
                     "column": 55
                   }
                 }
@@ -6727,11 +6809,11 @@
             ],
             "loc": {
               "start": {
-                "line": 170,
+                "line": 171,
                 "column": 22
               },
               "end": {
-                "line": 172,
+                "line": 173,
                 "column": 3
               }
             }
@@ -6742,11 +6824,11 @@
           "stateMutability": null,
           "loc": {
             "start": {
-              "line": 170,
+              "line": 171,
               "column": 4
             },
             "end": {
-              "line": 172,
+              "line": 173,
               "column": 3
             }
           }
@@ -6768,11 +6850,11 @@
                     "name": "require",
                     "loc": {
                       "start": {
-                        "line": 174,
+                        "line": 175,
                         "column": 8
                       },
                       "end": {
-                        "line": 174,
+                        "line": 175,
                         "column": 8
                       }
                     }
@@ -6786,11 +6868,11 @@
                         "name": "payedOut",
                         "loc": {
                           "start": {
-                            "line": 174,
+                            "line": 175,
                             "column": 17
                           },
                           "end": {
-                            "line": 174,
+                            "line": 175,
                             "column": 17
                           }
                         }
@@ -6798,11 +6880,11 @@
                       "isPrefix": true,
                       "loc": {
                         "start": {
-                          "line": 174,
+                          "line": 175,
                           "column": 16
                         },
                         "end": {
-                          "line": 174,
+                          "line": 175,
                           "column": 17
                         }
                       }
@@ -6811,22 +6893,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 174,
+                      "line": 175,
                       "column": 8
                     },
                     "end": {
-                      "line": 174,
+                      "line": 175,
                       "column": 25
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 174,
+                    "line": 175,
                     "column": 8
                   },
                   "end": {
-                    "line": 174,
+                    "line": 175,
                     "column": 26
                   }
                 }
@@ -6842,11 +6924,11 @@
                       "name": "winner",
                       "loc": {
                         "start": {
-                          "line": 175,
+                          "line": 176,
                           "column": 8
                         },
                         "end": {
-                          "line": 175,
+                          "line": 176,
                           "column": 8
                         }
                       }
@@ -6854,11 +6936,11 @@
                     "memberName": "send",
                     "loc": {
                       "start": {
-                        "line": 175,
+                        "line": 176,
                         "column": 8
                       },
                       "end": {
-                        "line": 175,
+                        "line": 176,
                         "column": 15
                       }
                     }
@@ -6869,11 +6951,11 @@
                       "name": "winAmount",
                       "loc": {
                         "start": {
-                          "line": 175,
+                          "line": 176,
                           "column": 20
                         },
                         "end": {
-                          "line": 175,
+                          "line": 176,
                           "column": 20
                         }
                       }
@@ -6882,22 +6964,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 175,
+                      "line": 176,
                       "column": 8
                     },
                     "end": {
-                      "line": 175,
+                      "line": 176,
                       "column": 29
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 175,
+                    "line": 176,
                     "column": 8
                   },
                   "end": {
-                    "line": 175,
+                    "line": 176,
                     "column": 30
                   }
                 }
@@ -6915,11 +6997,11 @@
                         "name": "winner",
                         "loc": {
                           "start": {
-                            "line": 176,
+                            "line": 177,
                             "column": 8
                           },
                           "end": {
-                            "line": 176,
+                            "line": 177,
                             "column": 8
                           }
                         }
@@ -6927,11 +7009,11 @@
                       "memberName": "b",
                       "loc": {
                         "start": {
-                          "line": 176,
+                          "line": 177,
                           "column": 8
                         },
                         "end": {
-                          "line": 176,
+                          "line": 177,
                           "column": 15
                         }
                       }
@@ -6939,11 +7021,11 @@
                     "memberName": "callcode",
                     "loc": {
                       "start": {
-                        "line": 176,
+                        "line": 177,
                         "column": 8
                       },
                       "end": {
-                        "line": 176,
+                        "line": 177,
                         "column": 17
                       }
                     }
@@ -6954,11 +7036,11 @@
                       "name": "winAmount",
                       "loc": {
                         "start": {
-                          "line": 176,
+                          "line": 177,
                           "column": 26
                         },
                         "end": {
-                          "line": 176,
+                          "line": 177,
                           "column": 26
                         }
                       }
@@ -6967,22 +7049,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 176,
+                      "line": 177,
                       "column": 8
                     },
                     "end": {
-                      "line": 176,
+                      "line": 177,
                       "column": 35
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 176,
+                    "line": 177,
                     "column": 8
                   },
                   "end": {
-                    "line": 176,
+                    "line": 177,
                     "column": 36
                   }
                 }
@@ -6998,11 +7080,11 @@
                       "name": "winner",
                       "loc": {
                         "start": {
-                          "line": 177,
+                          "line": 178,
                           "column": 8
                         },
                         "end": {
-                          "line": 177,
+                          "line": 178,
                           "column": 8
                         }
                       }
@@ -7010,11 +7092,11 @@
                     "memberName": "staticcal",
                     "loc": {
                       "start": {
-                        "line": 177,
+                        "line": 178,
                         "column": 8
                       },
                       "end": {
-                        "line": 177,
+                        "line": 178,
                         "column": 15
                       }
                     }
@@ -7025,11 +7107,11 @@
                       "name": "winAmount",
                       "loc": {
                         "start": {
-                          "line": 177,
+                          "line": 178,
                           "column": 25
                         },
                         "end": {
-                          "line": 177,
+                          "line": 178,
                           "column": 25
                         }
                       }
@@ -7038,22 +7120,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 177,
+                      "line": 178,
                       "column": 8
                     },
                     "end": {
-                      "line": 177,
+                      "line": 178,
                       "column": 34
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 177,
+                    "line": 178,
                     "column": 8
                   },
                   "end": {
-                    "line": 177,
+                    "line": 178,
                     "column": 35
                   }
                 }
@@ -7069,11 +7151,11 @@
                       "name": "winner",
                       "loc": {
                         "start": {
-                          "line": 178,
+                          "line": 179,
                           "column": 8
                         },
                         "end": {
-                          "line": 178,
+                          "line": 179,
                           "column": 8
                         }
                       }
@@ -7081,11 +7163,11 @@
                     "memberName": "call",
                     "loc": {
                       "start": {
-                        "line": 178,
+                        "line": 179,
                         "column": 8
                       },
                       "end": {
-                        "line": 178,
+                        "line": 179,
                         "column": 15
                       }
                     }
@@ -7096,11 +7178,11 @@
                       "name": "winAmount",
                       "loc": {
                         "start": {
-                          "line": 178,
+                          "line": 179,
                           "column": 20
                         },
                         "end": {
-                          "line": 178,
+                          "line": 179,
                           "column": 20
                         }
                       }
@@ -7109,22 +7191,22 @@
                   "names": [],
                   "loc": {
                     "start": {
-                      "line": 178,
+                      "line": 179,
                       "column": 8
                     },
                     "end": {
-                      "line": 178,
+                      "line": 179,
                       "column": 29
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 178,
+                    "line": 179,
                     "column": 8
                   },
                   "end": {
-                    "line": 178,
+                    "line": 179,
                     "column": 30
                   }
                 }
@@ -7139,11 +7221,11 @@
                     "name": "payedOut",
                     "loc": {
                       "start": {
-                        "line": 179,
+                        "line": 180,
                         "column": 8
                       },
                       "end": {
-                        "line": 179,
+                        "line": 180,
                         "column": 8
                       }
                     }
@@ -7153,33 +7235,33 @@
                     "value": true,
                     "loc": {
                       "start": {
-                        "line": 179,
+                        "line": 180,
                         "column": 19
                       },
                       "end": {
-                        "line": 179,
+                        "line": 180,
                         "column": 19
                       }
                     }
                   },
                   "loc": {
                     "start": {
-                      "line": 179,
+                      "line": 180,
                       "column": 8
                     },
                     "end": {
-                      "line": 179,
+                      "line": 180,
                       "column": 19
                     }
                   }
                 },
                 "loc": {
                   "start": {
-                    "line": 179,
+                    "line": 180,
                     "column": 8
                   },
                   "end": {
-                    "line": 179,
+                    "line": 180,
                     "column": 23
                   }
                 }
@@ -7187,11 +7269,11 @@
             ],
             "loc": {
               "start": {
-                "line": 173,
+                "line": 174,
                 "column": 34
               },
               "end": {
-                "line": 180,
+                "line": 181,
                 "column": 4
               }
             }
@@ -7202,11 +7284,11 @@
           "stateMutability": null,
           "loc": {
             "start": {
-              "line": 173,
+              "line": 174,
               "column": 3
             },
             "end": {
-              "line": 180,
+              "line": 181,
               "column": 4
             }
           }
@@ -7215,11 +7297,11 @@
       "kind": "contract",
       "loc": {
         "start": {
-          "line": 164,
+          "line": 165,
           "column": 1
         },
         "end": {
-          "line": 181,
+          "line": 182,
           "column": 0
         }
       }
@@ -7231,7 +7313,7 @@
       "column": 0
     },
     "end": {
-      "line": 181,
+      "line": 182,
       "column": 0
     }
   }

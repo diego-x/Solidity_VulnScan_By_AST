@@ -9,9 +9,9 @@ class Contract{
         this.DeclareVars = []
         this.functions = []      // 函数类构成的数组
         this.getDeclareVar()           // 获取定义的合约成员
-        this.getFuntion()       // 设置合约函数
         this.version = version   // 设置版本
         this.all_code = contract_code  // 所有的源代码
+        this.getFuntion()       // 设置合约函数
     }
 
     getDeclareVar(){
@@ -33,7 +33,7 @@ class Contract{
         find_Element_by_dfs(this.astTree, "", "type" , "FunctionDefinition", find_FunctionDefinition)
         // 创建函数类并赋值
         find_FunctionDefinition.forEach(function_ast => {
-            this.functions.push(new C_Function(function_ast))
+            this.functions.push(new C_Function(function_ast, this.all_code))
         })
     }
 

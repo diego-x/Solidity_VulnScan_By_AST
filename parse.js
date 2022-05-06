@@ -13,7 +13,6 @@ res = parser.parse(input,{ loc: true })
 fs.writeFileSync("tmp.json", JSON.stringify(res, null ,2))
 var Contracts = ast_to_class(res , input)
 
-//console.log(Contracts)
 var find_vuln = new Find_Vuln(Contracts)
 find_vuln.find_vuln_core()
 

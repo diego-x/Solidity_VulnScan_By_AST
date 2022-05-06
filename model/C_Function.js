@@ -1,8 +1,9 @@
-const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs } = require("../core/lib")
+const { readJsonSync } = require("fs-extra")
+const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs, find_code_by_loc } = require("../core/lib")
 
 class C_Function{
 
-    constructor(astTree){
+    constructor(astTree , contract_code){
         this.astTree = astTree
         // 因为constructor 解析不出来所以暂且认为 fuction为null的函数为 constructor
         this.name =  astTree.name ?  astTree.name : "constructor"
@@ -10,6 +11,7 @@ class C_Function{
         this.getFuctionParams()   // 获取函数参数
 
         this.getSpotChain()
+        this.all_code = contract_code
 
     }
     getFuctionParams(){
@@ -24,10 +26,6 @@ class C_Function{
     getFuctionMathExpress(){
         // 获取该函数的数学表达式
         let mathExpress =  getMathExpress(this.astTree)
-        // console.log(mathExpress)
-        // if(this.name == "vote"){
-        //     console.log(JSON.stringify(this.astTree,null,2))
-        // }
         return mathExpress
     }
 
@@ -65,7 +63,6 @@ class C_Function{
 
         //所有的赋值运算
         let binaryOperation =  this.getBinaryOperation()
-        //console.log(JSON.stringify(binaryOperation, null ,2 ))
         // 污点检测
         let find_spot = function (binaryOperation){
             binaryOperation.forEach(operation=>{
@@ -109,8 +106,10 @@ class C_Function{
                             // 子污点判断
                             sub_spots.forEach(spot=>{
                                 // 变量判断是否在污点列表里
-                                delete_loc_by_dfs(spot)
-                                let tmp_spot = JSON.stringify(spot)
+                                let tmp_spot1 = JSON.parse(JSON.stringify(spot))
+                                delete_loc_by_dfs(tmp_spot1)
+
+                                let tmp_spot = JSON.stringify(tmp_spot1)
                                 if (flag == 0 && all_var.indexOf(tmp_spot) != -1){
                                     flag = 1
                                 }
@@ -119,11 +118,10 @@ class C_Function{
                                     flag = 1
                                 }
                                 // 判断函数
-
                             })
                         }
                         //  存在污点则放入污点列表
-                        if(flag == 1) {
+                        if(flag == 1 ) {
                             tmp_sub_spots.push(operation.left)
                             spot_params.set(main_spot, tmp_sub_spots)
                         }
@@ -136,26 +134,31 @@ class C_Function{
 
         find_spot(binaryOperation)
         return spot_params
-        // console.log(spot_params)
+        
     }
 
     //  获取污染链
-    get_spots_link(spots){
+    get_spots_link(spots) {
 
         let spot_link = []
 
-        for(let spot of spots){
+        for (let spot of spots) {
             let link = spot[0];
-            for(let spot_ of spot[1]){
+            for (let spot_ of spot[1]) {
 
-                if(spot_.type == "Identifier"){
+                if (spot_.type == "Identifier") {
                     link += " -> " + spot_.name
-                }else if(spot_.type == "MemberAccess"){
-                    link += " -> " +    spot_.expression.name + "." +spot_.memberName             
+                } else if(spot_.type == "MemberAccess"){
+                    link += " -> " +    spot_.expression.name + "." +spot_.memberName 
+                }else {
+                    // 非主污染点 都采用原code
+                    let spot_code = find_code_by_loc(spot_.loc, this.all_code, 0)
+                    link += " -> " + spot_code
                 }
             }
             spot_link.push(link)
         }
+
         return spot_link
     }
 
