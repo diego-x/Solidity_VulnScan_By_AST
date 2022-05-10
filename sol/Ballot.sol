@@ -105,20 +105,8 @@ contract Ballot {
         sender.voted = true;
         test1 -= proposal;
         sender.vote = proposal + sender.voted;
-        test = proposal - 1;
         aaa = abc + 1;
-        a[b] = aaa;
-        bbb = 1 / abc;
-        right = 1 + sender.vote;
-        ttt = test + proposal;
-        txxx = ttt + 2 ;
-        think = 1 + aaaaa;
-        cccc = 1 + 2 + 1 +3 + 4  + txxx + 1 + 3;
-        ccc = 1+SafeMath.add(111,proposal);
-        spot1 -= SafeMath.add(proposal,12);
-        spot2 = SafeMath.add(proposal,12);
-
-
+        a[admin][admin] = aaa;
         proposals[proposal].voteCount += sender.weight;
     }
 

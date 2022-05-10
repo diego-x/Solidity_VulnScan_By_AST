@@ -3,11 +3,11 @@ const { find_Element_by_dfs, find_code_by_loc } = require("./lib")
 
 class Vuln_to_html{
 
-    constructor(vuln, Contract_code){
+    constructor(vuln, Contract_code, save_path){
         this.vuln = vuln
         this.contract_code = Contract_code
-        this.outPutHtml = "output/test.html"
-        this.outputData = fs.readFileSync("output/model.html","utf8")
+        this.outPutHtml = save_path
+        this.outputData = fs.readFileSync("public/model.html","utf8")
     }
 
 

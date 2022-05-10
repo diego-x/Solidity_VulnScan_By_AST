@@ -1,0 +1,202 @@
+﻿<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+<meta charset="utf-8">
+<title>智能合约漏洞扫描器</title>
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Cache-Control" content="max-age=72000" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+<link rel="stylesheet" href="/public/pintuer/pintuer.css">
+
+<script src="/public/fcup/js/jquery.min.js"></script>
+<script src="/public/pintuer/pintuer.js"></script>
+<link href="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.css" rel="stylesheet">
+<script src="https://cdn.bootcss.com/sweetalert/1.1.3/sweetalert.min.js"></script>
+
+</head>
+
+<style>
+   @font-face {
+      font-family: 'logo';
+      src: url('/public/logo.ttf');
+   }
+
+   .logo {
+      font-size: 25px;
+      font-family: "logo";
+   }
+
+   .csbg {
+      background-image: linear-gradient(to right, #eea2a2 0%, #bbc1bf 19%, #57c6e1 42%, #b49fda 79%, #7ac5d8 100%);
+   }
+</style>
+<script>
+   // 进度条
+   function Progress(value) {
+      $('#myProgress').css('width', value + '%');
+   }
+
+   function CloseDialog() {
+      $('#mydialog').hide();
+   }
+</script>
+
+<body>
+   <br><br><br><br><br>
+   <!-- 弹出框 -->
+   <!-- <div style="position: fixed;width:100%;">
+      <div class="dialog-win" id="mydialog" style="z-index: 11; top: 10px;display: none;">
+         <div class="dialog open">
+            <div class="dialog-head">
+               <span class="close rotate-hover" onClick="CloseDialog()"></span><strong>图片预览</strong>
+            </div>
+            <div >
+               <iframe src="" id="pic"  alt="响应式图片" ></iframe>
+            </div>
+         </div>
+      </div>
+   </div> -->
+   <div class="container">
+      <div class="view-body">
+         <div class="keypoint bg-blue bg-inverse radius text-center csbg">
+            <a href="https://gitee.com/lovefc/fcup" target="_blank">
+               <h1 class="logo">
+                  智能合约漏洞扫描器
+               </h1>
+            </a>
+            <p>
+               基于 Solidity-parser-antlr 的 AST 漏洞扫描器</p>
+            <p>
+               <br />
+               <button class="button bg-main button-big icon-arrow-circle-up" id="upid">
+                  立即上传</button>
+            </p>
+         </div>
+         <div class="progress progress-small">
+            <div class="progress-bar bg-yellow" id="myProgress" style="width: 0%;">
+            </div>
+         </div>
+      </div>
+      <br><br><br>
+      <div class="view-body">
+         <div class="panel">
+            <div class="panel-head">
+               <strong>使用说明</strong>
+            </div>
+            <ul class="list-group">
+               <li> 1、 目前仅支持单个合约文件，上传的文件后缀为sol文件 </li>
+               <li> 2、 目前已经支持的漏洞类型，重入漏洞、整数溢出漏洞、tx.origin漏洞、未检查返回值漏洞、危险函数调用</li>
+            </ul>
+         </div>
+
+
+         </div>
+   </div>
+</body>
+<!--  fcup.js  -->
+<script src="/public/fcup/js/jquery.fcup.js"></script>
+
+<script>
+   $.fcup({
+
+      upId: 'upid', //上传dom的id
+
+      upShardSize: '0.1', //切片大小,(单次上传最大值)单位M，默认2M
+
+      upMaxSize: '20', //上传文件大小,单位M，不设置不限制
+
+      upUrl: '/vuln_scan', //文件上传接口
+
+      upType: 'sol', //上传类型检测,用,号分割
+
+      //接口返回结果回调，根据结果返回的数据来进行判断，可以返回字符串或者json来进行判断处理
+      upCallBack: function (res) {
+
+         // 状态
+         var status = res.status;
+         // 信息
+         var msg = res.message;
+         // url
+         var url = res.path;
+
+         // 已经完成了
+         if (status == 2) {
+            swal({ 
+               title: "漏洞检测完成", 
+               text: "报告路径 " + url, 
+               type: "success",
+               showCancelButton: true,
+               confirmButtonText:"查看报告",
+               closeOnConfirm:true,
+               closeOnCancel:true,
+               },
+               function(isConfirm){
+                  if(isConfirm){
+                     window.location.href = url
+                  }else{
+                     window.location.href = window.location.href
+                  }
+               }
+            );
+            // $('#pic').attr("src", url);
+            // $('#mydialog').show();
+            let vuln = document.getElementById("vuln")
+         }
+
+         // 还在上传中
+         if (status == 1) {
+            console.log(msg);
+         }
+
+         // 接口返回错误
+         if (status == 0) {
+            swal({ 
+               title: "漏洞检测Error", 
+               text: "Error:  " + msg, 
+               type: "error",
+               showCancelButton: true,
+               confirmButtonText:"重新上传",
+               closeOnConfirm:false,
+               closeOnCancel:false,
+               },
+               function(isConfirm){
+                  if(isConfirm){
+                     window.location.href = window.location.href
+                  }else{
+                     window.location.href = window.location.href
+                  }
+               }
+            );
+            // 停止上传并且提示信息
+            $.upStop(msg);
+         }
+      },
+
+      // 上传过程监听，可以根据当前执行的进度值来改变进度条
+      upEvent: function (num) {
+         // num的值是上传的进度，从1到100
+         Progress(num);
+      },
+
+      // 发生错误后的处理
+      upStop: function (errmsg) {
+         // 这里只是简单的alert一下结果，可以使用其它的弹窗提醒插件
+         //alert(errmsg);
+      },
+
+      // 开始上传前的处理和回调,比如进度条初始化等
+      upStart: function () {
+         Progress(0);
+         $('#mydialog').hide();
+         swal({ 
+            title: "开始上传", 
+            text: "文件已经开始上传", 
+            type: "success",
+            showCancelButton: true
+         });
+      }
+ });
+</script>
+
+</html>

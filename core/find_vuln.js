@@ -86,93 +86,76 @@ class Find_Vuln {
     //tx.origin依赖漏洞 
     find_tx_origin(contract) {
 
-        let tx_origin_ast = Vuln.tx_origin_ast
+        let tx_origin_asts = Vuln.tx_origin_ast
+        //  遍历tx.origin 特征
+        for(let tx_origin_ast of tx_origin_asts ){
 
-        let finded_tx_origin = []
-        let find_MemberAccess = []
-        let find_operator_equals = []
-        find_Element_by_dfs(contract.astTree, "", "operator", "==", find_operator_equals)
-        find_Element_by_dfs(find_operator_equals, "" , "left" , JSON.stringify(tx_origin_ast), finded_tx_origin, 1)
-        find_Element_by_dfs(find_operator_equals, "" , "right" , JSON.stringify(tx_origin_ast), finded_tx_origin, 1)
+            let finded_tx_origin = []
+            let find_operator_equals = []
+            find_Element_by_dfs(contract.astTree, "", "operator", "==", find_operator_equals)
+            find_Element_by_dfs(find_operator_equals, "" , "left" , JSON.stringify(tx_origin_ast), finded_tx_origin, 1)
+            find_Element_by_dfs(find_operator_equals, "" , "right" , JSON.stringify(tx_origin_ast), finded_tx_origin, 1)
 
-        // find_Element_by_dfs(find_operator_equals, "", "type", tx_origin_ast.type, find_MemberAccess)
+            if (finded_tx_origin.length != 0) {
 
-        // // 匹配 tx.origin
-        // for (let memberAccess of find_MemberAccess) {
-        //     if (memberAccess.memberName == tx_origin_ast.memberName && tx_origin_ast.expression.name == memberAccess.expression.name) {
-        //         finded_tx_origin.push(memberAccess)
-        //     }
-        // }
-
-        if (finded_tx_origin.length != 0) {
-
-            finded_tx_origin.forEach(tx_origin => {
-                let vuln_data = {
-                    "Contract": contract.name,
-                    "Function": null,
-                    "type": "tx.origin",
-                    "vuln_loc": tx_origin.loc
-                }
-                this.vuln.push(vuln_data)
-            })
+                finded_tx_origin.forEach(tx_origin => {
+                    let vuln_data = {
+                        "Contract": contract.name,
+                        "Function": null,
+                        "type": "tx.origin",
+                        "vuln_loc": tx_origin.loc
+                    }
+                    this.vuln.push(vuln_data)
+                })
+            }
         }
     }
 
     // 查找重入漏洞
     find_reentrancy(contract) {
 
-        let vuln_call = Vuln.vuln_call
+        let vuln_calls = Vuln.vuln_call
 
         contract.functions.forEach(c_function => {
+            // 查找类似于 msg.sender.call.value 的特征
+            for(let vuln_call  of vuln_calls){
+                
+                let tmp_vuln_call = JSON.stringify(vuln_call.expression)
+                let find_vuln_call = []
 
-            // 查找 msg.sender.call.value
-            let tmp_vuln_call = JSON.stringify(vuln_call.expression)
-            let find_vuln_call = []
+                find_Element_by_dfs(c_function.astTree, "", "expression", tmp_vuln_call, find_vuln_call, 1)
 
-            find_Element_by_dfs(c_function.astTree, "", "expression", tmp_vuln_call, find_vuln_call, 1)
+                if (find_vuln_call.length != 0) {
+                    //  对多个用户态进行比较
+                    let balances = Vuln.user_balance
+                    
+                    for(let balance of balances){
+                        let find_balacne = []
 
-            if (find_vuln_call.length != 0) {
-                //  修改用户态特征， 可以多个来轮番比较
-                let balance = {
-                    "type": 'IndexAccess',
-                    "base": {
-                        "type": 'Identifier',
-                        name: 'balances'
-                    },
-                    "index": {
-                        "type": 'MemberAccess',
-                        "expression": {
-                            type: 'Identifier',
-                            name: 'msg'
-                        },
-                        "memberName": 'sender'
+                        find_Element_by_dfs(c_function.astTree, "", "left", JSON.stringify(balance), find_balacne, 1)
+                        find_balacne.forEach(balance => {
+                            // 判断前后位置
+                            if (balance.loc.start.line > find_vuln_call[0].loc.start.line) {
+                                let vuln_data = {
+                                    "Contract": contract.name,
+                                    "Function": c_function.name,
+                                    "type": "reentrancy",
+                                    "vuln_loc": [find_vuln_call[0].loc, balance.loc],
+                                }
+                                this.vuln.push(vuln_data)
+                            }
+                        })
                     }
                 }
-                let find_balacne = []
-                find_Element_by_dfs(c_function.astTree, "", "left", JSON.stringify(balance), find_balacne, 1)
-
-                find_balacne.forEach(balance => {
-                    // 判断前后位置
-                    if (balance.loc.start.line > find_vuln_call[0].loc.start.line) {
-                        let vuln_data = {
-                            "Contract": contract.name,
-                            "Function": c_function.name,
-                            "type": "reentrancy",
-                            "vuln_loc": [find_vuln_call[0].loc, balance.loc],
-                        }
-                        this.vuln.push(vuln_data)
-                    }
-                })
             }
-
-        })
+        })  
 
     }
 
     // 未检查返回值
     find_unreturn(contract) {
 
-        let black_function = "call|codecall|send|delegatecall|staticcal"
+        let black_function = Vuln.unreturn_check_function
         contract.functions.forEach(c_function => {
             let astTree = c_function.astTree
             let find_function = []
