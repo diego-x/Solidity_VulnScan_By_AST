@@ -1,5 +1,6 @@
 const { readJsonSync } = require("fs-extra")
 const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs, find_code_by_loc, sort_by_loc, is_safe_math } = require("../core/lib")
+const { overflow_uncheck_list } = require("../core/vuln")
 
 class C_Function{
 
@@ -57,6 +58,16 @@ class C_Function{
         return Variable
     }
 
+    getAddressVars(){
+        //返回address类型的参数
+        let vars = []
+        for(let param of this.params){
+            if(param.type_name == "address"){
+                vars.push(param.name)
+            }
+        }
+        return vars
+    }
 
     getFuctionMathExpress(){
         // 获取该函数的数学表达式
@@ -107,7 +118,7 @@ class C_Function{
             binaryOperation.forEach(operation=>{
                 
                 // 判断表达式中是否采用了安全库
-                if(is_safe_math(operation) == true){
+                if(is_safe_math(operation, overflow_uncheck_list) == true){
                     
                     let all_var = []  // 表达式中的所有变量
                     find_Element_by_dfs(operation.right, "", "type", "Identifier", all_var) 

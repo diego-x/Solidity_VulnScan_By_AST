@@ -1,3 +1,4 @@
+var parser = require("solidity-parser-antlr")
 // 找到对应元素的上一个位置    find_element_key寻找的键值  find_element_value寻找的元素值
 // value_is_object 0 时 key为字符串类型 ， 1时key为复杂类型，即子树
 function find_Element_by_dfs(ast_tree, last_tree, find_element_key, find_element_value, res, value_is_object = 0) {
@@ -208,17 +209,17 @@ function sort_by_loc(arr){
 }
 
 // 判断函数是否采用了安全的计算方式
-function is_safe_math(mathexpress){
+function is_safe_math(mathexpress, overflow_uncheck_list){
 	
 	let math_express_stringify = JSON.stringify(mathexpress)
-	
+
 	if (math_express_stringify.match(/safemath/i) != null) {
 		return false // 安全
 	}else {
 		// 检查表达式中是否包含 安全函数
 		let FunctionCall = []
 		let memberName = []
-		let check_list = ["sub" , "add" , "div" , "mul"]
+		let check_list = overflow_uncheck_list
 
 		find_Element_by_dfs(mathexpress, "" , "type" , "FunctionCall" , FunctionCall)
 
@@ -231,6 +232,20 @@ function is_safe_math(mathexpress){
 	return true
 }
 
+// 将代码转成ast
+function code_to_ast(code){
+
+  sandbox = `contract test{
+      function test(){
+          ${code};
+      }
+  }`
+  res = parser.parse(sandbox)
+  result = res.children[0].subNodes[0].body.statements[0].expression
+
+  return result
+}
+
 module.exports.find_Element_by_dfs = find_Element_by_dfs
 module.exports.getVersion = getVersion
 module.exports.getMathExpress = getMathExpress
@@ -239,3 +254,4 @@ module.exports.getDeclareVarOrFuctionParams = getDeclareVarOrFuctionParams
 module.exports.find_code_by_loc = find_code_by_loc
 module.exports.sort_by_loc = sort_by_loc
 module.exports.is_safe_math = is_safe_math
+module.exports.code_to_ast = code_to_ast

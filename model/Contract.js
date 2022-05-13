@@ -37,6 +37,18 @@ class Contract{
         })
     }
 
+    getBalance(){
+        let var_balance = []
+        // 获取记录用户状态变量
+        this.DeclareVars.forEach(declare_var =>{
+            if(declare_var.type_name == "Mapping" && declare_var.key_type == "address" && declare_var.value_type.indexOf("uint") != -1){
+                var_balance.push(declare_var.name)
+            }
+        });
+
+        return var_balance
+    }
+
 }
 
 

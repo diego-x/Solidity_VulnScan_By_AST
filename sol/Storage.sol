@@ -1,19 +1,25 @@
-pragma solidity >=0.7.0 <0.9.0;
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.0;
 
-contract Storage {
+contract EtherStore {
+    mapping(address => uint) public balances;
 
-    function batchTransfer(address[] _receivers, uint256 _value) public whenNotPaused returns (bool) {
-        uint cnt = _receivers.length;
-        uint256 amount = uint256(cnt) * _value; //溢出点，这里存在整数溢出
-        c = a + amount; 
-        require(cnt > 0 && cnt <= 20);
-        require(_value > 0 && balances[msg.sender] >= amount);
+    function deposit() public payable {
+        balances[msg.sender] += msg.value;
+    }
 
-        balances[msg.sender] = balances[msg.sender].sub(amount);
-        for (uint i = 0; i < cnt; i++) {
-            balances[_receivers[i]] = balances[_receivers[i]].add(_value);
-            Transfer(msg.sender, _receivers[i], _value);
-        }
-        return true;
-  }
+    function withdraw(address test) public {
+        uint bal = balances[msg.sender];
+        require(bal > 0);
+
+        (bool sent,) = msg.sender.call.value(222)(); // Vulnerability of re-entrancy
+        require(sent, "Failed to send Ether");
+
+        balances[test] = 0;
+    }
+
+    // Helper function to check the balance of this contract
+    function getBalance() public view returns (uint) {
+        return address(this).balance;
+    }
 }

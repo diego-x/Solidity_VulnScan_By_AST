@@ -3,7 +3,8 @@ const {
     find_Element_by_dfs,
     delete_loc_by_dfs,
     find_code_by_loc,
-    is_safe_math
+    is_safe_math,
+    code_to_ast
 } = require("./lib")
 const Vuln = require("./vuln")
 
@@ -29,7 +30,7 @@ class Find_Vuln {
                 for (let mathexpress of mathExpress) {
 
                     // 判断表达式中是否采用了安全库
-                    if (is_safe_math(mathexpress) != true) {
+                    if (is_safe_math(mathexpress, Vuln.overflow_uncheck_list) != true) {
                         break // 安全
                     }
 
@@ -116,8 +117,20 @@ class Find_Vuln {
     find_reentrancy(contract) {
 
         let vuln_calls = Vuln.vuln_call
+        let balances = Vuln.user_balance
+        let user_balances = contract.getBalance()  // 获取用户自定义的balance
 
         contract.functions.forEach(c_function => {
+            
+            let function_address_vars = c_function.getAddressVars()  // 获取函数传入的address类型
+            for(let user_balance of user_balances){
+                for(let function_address_var of function_address_vars){
+                    // 所有组合可能
+                    let code = `${user_balance}[${function_address_var}]`
+                    balances.push(code_to_ast(code)) // 添加到总可能
+                }
+            }
+
             // 查找类似于 msg.sender.call.value 的特征
             for(let vuln_call  of vuln_calls){
                 
@@ -128,8 +141,6 @@ class Find_Vuln {
 
                 if (find_vuln_call.length != 0) {
                     //  对多个用户态进行比较
-                    let balances = Vuln.user_balance
-                    
                     for(let balance of balances){
                         let find_balacne = []
 
