@@ -1,5 +1,5 @@
 const { readJsonSync } = require("fs-extra")
-const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs, find_code_by_loc, sort_by_loc } = require("../core/lib")
+const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs, find_code_by_loc, sort_by_loc, is_safe_math } = require("../core/lib")
 
 class C_Function{
 
@@ -107,8 +107,7 @@ class C_Function{
             binaryOperation.forEach(operation=>{
                 
                 // 判断表达式中是否采用了安全库
-                let math_express_stringify = JSON.stringify(operation)
-                if(math_express_stringify.match(/safemath/i) == null){
+                if(is_safe_math(operation) == true){
                     
                     let all_var = []  // 表达式中的所有变量
                     find_Element_by_dfs(operation.right, "", "type", "Identifier", all_var) 

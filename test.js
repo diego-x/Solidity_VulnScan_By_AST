@@ -12,8 +12,8 @@ fs.writeFileSync("./sol/test.json", JSON.stringify(res, null, 2))
 Contracts = ast_to_class(res, input)
 let find_vuln = new Find_Vuln(Contracts)
 find_vuln.find_vuln_core()
-console.log(find_vuln.vuln)
-// console.log(find_code_by_loc( find_vuln.vuln[0].vuln_loc, input) )
-// console.log(find_code_by_loc( find_vuln.vuln[1].vuln_loc, input) )
-// console.log(find_code_by_loc( find_vuln.vuln[2].vuln_loc, input) )
-// console.log(find_code_by_loc( find_vuln.vuln[3].vuln_loc, input) )
+for(let vuln of find_vuln.vuln){
+    code = find_code_by_loc(vuln.vuln_loc ,input)
+    console.log(code)
+    console.log(vuln)
+}

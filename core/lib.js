@@ -207,6 +207,30 @@ function sort_by_loc(arr){
 	return arr
 }
 
+// 判断函数是否采用了安全的计算方式
+function is_safe_math(mathexpress){
+	
+	let math_express_stringify = JSON.stringify(mathexpress)
+	
+	if (math_express_stringify.match(/safemath/i) != null) {
+		return false // 安全
+	}else {
+		// 检查表达式中是否包含 安全函数
+		let FunctionCall = []
+		let memberName = []
+		let check_list = ["sub" , "add" , "div" , "mul"]
+
+		find_Element_by_dfs(mathexpress, "" , "type" , "FunctionCall" , FunctionCall)
+
+		for(let check of check_list){
+			find_Element_by_dfs(mathexpress, "" , "memberName" , check , memberName)
+		}
+		if(memberName.length != 0) return false
+	}
+
+	return true
+}
+
 module.exports.find_Element_by_dfs = find_Element_by_dfs
 module.exports.getVersion = getVersion
 module.exports.getMathExpress = getMathExpress
@@ -214,3 +238,4 @@ module.exports.delete_loc_by_dfs = delete_loc_by_dfs
 module.exports.getDeclareVarOrFuctionParams = getDeclareVarOrFuctionParams
 module.exports.find_code_by_loc = find_code_by_loc
 module.exports.sort_by_loc = sort_by_loc
+module.exports.is_safe_math = is_safe_math
