@@ -2,16 +2,19 @@ pragma solidity >=0.7.0 <0.9.0;
 
 contract Storage {
 
-    uint256 number;
+    function batchTransfer(address[] _receivers, uint256 _value) public whenNotPaused returns (bool) {
+        uint cnt = _receivers.length;
+        uint256 amount = uint256(cnt) * _value; //溢出点，这里存在整数溢出
+        uint256[] amount1 = uint256(cnt) * _value; //溢出点，这里存在整数溢出
+        c = a + v; 
+        require(cnt > 0 && cnt <= 20);
+        require(_value > 0 && balances[msg.sender] >= amount);
 
-    function store(uint256 num , uint256 num1) public payable {
-        require(num > 0);
-        require(num1 > 0);
-        number = num * num1;
-    }
-
-
-    function retrieve() public view returns (uint256){
-        return number;
-    }
+        balances[msg.sender] = balances[msg.sender].sub(amount);
+        for (uint i = 0; i < cnt; i++) {
+            balances[_receivers[i]] = balances[_receivers[i]].add(_value);
+            Transfer(msg.sender, _receivers[i], _value);
+        }
+        return true;
+  }
 }

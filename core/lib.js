@@ -191,9 +191,26 @@ function getDeclareVarOrFuctionParams(arr) {
 	return res
 }
 
+// 基于loc排序
+function sort_by_loc(arr){
+
+	let len = arr.length
+	for(var i = 0; i < len -1 ; i++){
+		for(var j = i+1 ; j < len ; j++){
+			if (arr[j].loc.start.line < arr[i].loc.start.line) {        // 相邻元素两两对比
+                var temp = arr[j];        // 元素交换
+                arr[j] = arr[i];
+                arr[i] = temp;
+            }
+		}
+	}
+	return arr
+}
+
 module.exports.find_Element_by_dfs = find_Element_by_dfs
 module.exports.getVersion = getVersion
 module.exports.getMathExpress = getMathExpress
 module.exports.delete_loc_by_dfs = delete_loc_by_dfs
 module.exports.getDeclareVarOrFuctionParams = getDeclareVarOrFuctionParams
 module.exports.find_code_by_loc = find_code_by_loc
+module.exports.sort_by_loc = sort_by_loc

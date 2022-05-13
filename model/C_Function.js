@@ -1,5 +1,5 @@
 const { readJsonSync } = require("fs-extra")
-const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs, find_code_by_loc } = require("../core/lib")
+const { getDeclareVarOrFuctionParams, find_Element_by_dfs, getMathExpress, delete_loc_by_dfs, find_code_by_loc, sort_by_loc } = require("../core/lib")
 
 class C_Function{
 
@@ -23,9 +23,46 @@ class C_Function{
         this.params = getDeclareVarOrFuctionParams(find_FunctionParams)
     }
 
+    getVariableDeclaration(){
+        // 变量声明情况 如uint256 a = b + c 
+        let Variable = []
+        let VariableDeclaration = []
+        find_Element_by_dfs(this.astTree, "" , "type" , "VariableDeclarationStatement", VariableDeclaration)
+        VariableDeclaration.forEach(var_declare =>{
+            if(var_declare.initialValue.type == "BinaryOperation"){
+
+                let type = ""
+                if(var_declare.variables[0].typeName.type == "ElementaryTypeName"){
+                    type = var_declare.variables[0].typeName.name
+                }else if(var_declare.variables[0].typeName.type == "ArrayTypeName"  ){
+                    type = var_declare.variables[0].typeName.baseTypeName.name
+                }
+                if(type.indexOf("uint") != -1 ){
+                    let tmp_binaryOperation = {
+                        "type" : 'BinaryOperation',
+                        "operator" : '=',
+                        "right" : var_declare.initialValue,
+                        "left" :  {
+                            "type": "Identifier",
+                            "name": var_declare.variables[0].name
+                        },
+                        "loc" : var_declare.loc
+                    }
+                    Variable.push(tmp_binaryOperation)
+            
+                }
+                
+            }
+        })
+        return Variable
+    }
+
+
     getFuctionMathExpress(){
         // 获取该函数的数学表达式
         let mathExpress =  getMathExpress(this.astTree)
+        mathExpress = mathExpress.concat(this.getVariableDeclaration())
+        sort_by_loc(mathExpress)
         return mathExpress
     }
 
@@ -63,6 +100,8 @@ class C_Function{
 
         //所有的赋值运算
         let binaryOperation =  this.getBinaryOperation()
+        binaryOperation = binaryOperation.concat(this.getVariableDeclaration())
+        sort_by_loc(binaryOperation)
         // 污点检测
         let find_spot = function (binaryOperation){
             binaryOperation.forEach(operation=>{

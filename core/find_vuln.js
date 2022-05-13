@@ -1,3 +1,4 @@
+const { get } = require("http")
 const {
     find_Element_by_dfs,
     delete_loc_by_dfs,
@@ -28,8 +29,20 @@ class Find_Vuln {
 
                     // 判断表达式中是否采用了安全库
                     let math_express_stringify = JSON.stringify(mathexpress)
-                    if (math_express_stringify.match(/safemath/i)) {
+                    if (math_express_stringify.match(/safemath/i) != null) {
                         break // 安全
+                    }else {
+                        // 检查表达式中是否包含 安全函数
+                        let FunctionCall = []
+                        let memberName = []
+                        let check_list = ["sub" , "add" , "div" , "mul"]
+
+                        find_Element_by_dfs(mathexpress, "" , "type" , "FunctionCall" , FunctionCall)
+
+                        for(let check of check_list){
+                            find_Element_by_dfs(mathexpress, "" , "memberName" , check , memberName)
+                        }
+                        if(memberName.length != 0) break
                     }
 
                     for (let main_spot of spots.keys()) {
