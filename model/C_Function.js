@@ -13,7 +13,6 @@ class C_Function{
 
         this.getSpotChain()
         this.all_code = contract_code
-
     }
     getFuctionParams(){
         // 查找函数的 变量部分
@@ -58,9 +57,9 @@ class C_Function{
         return Variable
     }
 
-    getAddressVars(){
+    getAddressParams(){
         //返回address类型的参数
-        let vars = []
+        let vars = ["msg.sender"]
         for(let param of this.params){
             if(param.type_name == "address"){
                 vars.push(param.name)

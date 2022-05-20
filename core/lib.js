@@ -122,9 +122,10 @@ function getMathExpress(ast) {
 	math_express = []
 	find_element = []
 	find_Element_by_dfs(ast, "", "type", "BinaryOperation", find_element)
-	// 筛选只包含+-*/ 的计算类的数学表达式
+	// 筛选存在数学运算的复制表达式  
 	find_element.forEach(MathExpress => {
-		if ( MathExpress.operator.match(/([\!\>\<])|(==)/) == null && MathExpress.operator.match(/=/) != null)  {
+		if ( MathExpress.operator.match(/([\!\>\<])|(==)/) == null && MathExpress.operator.match(/=/) != null
+				&& ( MathExpress.operator.length == 2 || MathExpress.right.type == "BinaryOperation"))  {
 			math_express.push(MathExpress)
 		}
 	});

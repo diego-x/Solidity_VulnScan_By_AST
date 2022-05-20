@@ -17,8 +17,12 @@ class Find_Vuln {
 
     // 查找溢出漏洞
     find_overFlow(contract) {
+
+        if(contract.name.match(/safemath/i) != null ){
+            return 0
+        }
         // 版本小于0.8 才可能存在漏洞
-        if (contract.version[0] < "0.8.0") {
+        if (contract.version != undefined && contract.version[0] < "0.8.0") {
             // 遍历函数
             contract.functions.forEach(c_function => {
                 // 获取污点
@@ -122,11 +126,11 @@ class Find_Vuln {
 
         contract.functions.forEach(c_function => {
             
-            let function_address_vars = c_function.getAddressVars()  // 获取函数传入的address类型
+            let function_address_params = c_function.getAddressParams()  // 获取函数传入的address类型
             for(let user_balance of user_balances){
-                for(let function_address_var of function_address_vars){
+                for(let function_address_param of function_address_params){
                     // 所有组合可能
-                    let code = `${user_balance}[${function_address_var}]`
+                    let code = `${user_balance}[${function_address_param}]`
                     balances.push(code_to_ast(code)) // 添加到总可能
                 }
             }
@@ -244,12 +248,31 @@ class Find_Vuln {
         //  遍历合约 依次进行漏洞检测
         this.Contracts.forEach(contract => {
 
-            this.find_overFlow(contract)
-            this.find_tx_origin(contract)
-            this.find_reentrancy(contract)
-            this.find_delegatecall(contract)
-            this.find_unreturn(contract)
-
+            try{
+                this.find_overFlow(contract)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                this.find_tx_origin(contract)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                this.find_reentrancy(contract)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                this.find_delegatecall(contract)
+            }catch(e){
+                console.log(e)
+            }
+            try{
+                this.find_unreturn(contract)
+            }catch(e){
+                console.log(e)
+            }
         });
     }
 

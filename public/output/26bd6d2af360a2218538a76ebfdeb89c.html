@@ -1,4 +1,21 @@
-/**
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能合约漏洞检测报告</title>
+<!-- 导入需要的包 -->
+<link rel="stylesheet" href="/public/css/darcula.css">
+<script src="/public/js/highlight.min.js"></script>
+<script src="/public/js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body style="background: url(/public/images/trees.webp) ; background-size:100% 100% ; background-attachment: fixed">
+    <div style="border: 1px solid #ffffff; width: 1200px; height: 500px;margin: 0 auto;">      
+        <h2>智能合约代码</h2>
+        <pre>
+            <code>/**
  *Submitted for verification at Etherscan.io on 2017-11-28
 */
 
@@ -410,7 +427,6 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         balances[owner] += amount;
         _totalSupply += amount;
         Issue(amount);
-        a = amount + bb;
     }
 
     // Redeem tokens.
@@ -449,4 +465,39 @@ contract TetherToken is Pausable, StandardToken, BlackList {
 
     // Called if contract ever adds fees
     event Params(uint feeBasisPoints, uint maxFee);
-}
+}</code>
+        </pre>
+
+        <h2>溢出漏洞</h2>
+
+合约<font color="red" size="4">SafeMath</font> 函数<font color="red" size="4">mul</font> 行<font color="red" size="4">16</font> 传入的参数 <font color="red" size="4">b</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(b -> c)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> uint256 c = a * b;<code></font></pre><br>合约<font color="red" size="4">SafeMath</font> 函数<font color="red" size="4">div</font> 行<font color="red" size="4">23</font> 传入的参数 <font color="red" size="4">b</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(b -> c)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> uint256 c = a / b;<code></font></pre><br>合约<font color="red" size="4">SafeMath</font> 函数<font color="red" size="4">add</font> 行<font color="red" size="4">34</font> 传入的参数 <font color="red" size="4">b</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(b -> c)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> uint256 c = a + b;<code></font></pre><br>合约<font color="red" size="4">StandardToken</font> 函数<font color="red" size="4">approve</font> 行<font color="red" size="4">207</font> 传入的参数 <font color="red" size="4">_value</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(_value -> allowed[msg.sender][_spender])</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> allowed[msg.sender][_spender] = _value;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">TetherToken</font> 行<font color="red" size="4">331</font> 传入的参数 <font color="red" size="4">_initialSupply</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(_initialSupply -> _totalSupply)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> _totalSupply = _initialSupply;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">TetherToken</font> 行<font color="red" size="4">334</font> 传入的参数 <font color="red" size="4">_decimals</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(_decimals)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> decimals = _decimals;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">TetherToken</font> 行<font color="red" size="4">335</font> 传入的参数 <font color="red" size="4">_initialSupply</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(_initialSupply -> _totalSupply -> balances[owner])</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> balances[owner] = _initialSupply;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">issue</font> 行<font color="red" size="4">410</font> 传入的参数 <font color="red" size="4">amount</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(amount -> balances[owner])</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> balances[owner] += amount;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">issue</font> 行<font color="red" size="4">411</font> 传入的参数 <font color="red" size="4">amount</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(amount -> balances[owner] -> _totalSupply)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> _totalSupply += amount;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">redeem</font> 行<font color="red" size="4">424</font> 传入的参数 <font color="red" size="4">amount</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(amount -> _totalSupply)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> _totalSupply -= amount;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">redeem</font> 行<font color="red" size="4">425</font> 传入的参数 <font color="red" size="4">amount</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(amount -> _totalSupply -> balances[owner])</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> balances[owner] -= amount;<code></font></pre><br>合约<font color="red" size="4">TetherToken</font> 函数<font color="red" size="4">setParams</font> 行<font color="red" size="4">434</font> 传入的参数 <font color="red" size="4">newBasisPoints</font> 直接或间接参与数学运算 <font color="red" size="4">污染链(newBasisPoints -> basisPointsRate)</font>, 同时没有采用<font color="red" size="4">SafeMath</font>库
+<pre><font size="4"><code> basisPointsRate = newBasisPoints;<code></font></pre><br><h2>tx.origin依赖漏洞</h2>
+
+<h2>重入漏洞</h2>
+
+<h2>危险函数调用</h2>
+
+<h2>未检查返回值</h2>
+
+
+        <script>
+            // 开启代码高亮
+            hljs.initHighlightingOnLoad();
+            // 行号显示
+            hljs.initLineNumbersOnLoad ({ singleLine:true });
+        </script>
+    </div>
+</body>
+
+</html>

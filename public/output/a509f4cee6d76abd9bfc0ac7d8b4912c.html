@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智能合约漏洞检测报告</title>
+<!-- 导入需要的包 -->
+<link rel="stylesheet" href="/public/css/darcula.css">
+<script src="/public/js/highlight.min.js"></script>
+<script src="/public/js/highlightjs-line-numbers.min.js"></script>
+</head>
+
+<body style="background: url(/public/images/trees.webp) ; background-size:100% 100% ; background-attachment: fixed">
+    <div style="border: 1px solid #ffffff; width: 1200px; height: 500px;margin: 0 auto;">      
+        <h2>智能合约代码</h2>
+        <pre>
+            <code>// SPDX-License-Identifier: MIT
+
+contract game {
+    address public owner;
+    
+    constructor () public {
+        owner = msg.sender;
+    }
+    function () public payable {}
+        function withdrawAll(address _recipient) public {
+            require(tx.origin == owner);
+            _recipient.transfer(this.balance);
+        }
+}</code>
+        </pre>
+
+        <h2>溢出漏洞</h2>
+
+<h2>tx.origin依赖漏洞</h2>
+
+合约<font color="red" size="4">game</font>  行<font color="red" size="4">11</font>使用 <font color="red" size="4">tx.origin </font> 来进行判断，可能存在依赖漏洞
+<pre><font size="4"><code> require(tx.origin == owner);<code></font></pre><br><h2>重入漏洞</h2>
+
+<h2>危险函数调用</h2>
+
+<h2>未检查返回值</h2>
+
+
+        <script>
+            // 开启代码高亮
+            hljs.initHighlightingOnLoad();
+            // 行号显示
+            hljs.initLineNumbersOnLoad ({ singleLine:true });
+        </script>
+    </div>
+</body>
+
+</html>

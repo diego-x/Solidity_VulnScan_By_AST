@@ -408,9 +408,9 @@ contract TetherToken is Pausable, StandardToken, BlackList {
         require(balances[owner] + amount > balances[owner]);
 
         balances[owner] += amount;
+        a = amount + bb;
         _totalSupply += amount;
         Issue(amount);
-        a = amount + bb;
     }
 
     // Redeem tokens.

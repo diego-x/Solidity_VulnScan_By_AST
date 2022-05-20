@@ -6,12 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>智能合约漏洞检测报告</title>
 <!-- 导入需要的包 -->
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlightjs@9.16.2/styles/darcula.css">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.1/highlight.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/highlightjs-line-numbers.js/2.8.0/highlightjs-line-numbers.min.js"></script>
+<link rel="stylesheet" href="/public/css/darcula.css">
+<script src="/public/js/highlight.min.js"></script>
+<script src="/public/js/highlightjs-line-numbers.min.js"></script>
 </head>
+<script src="/public/js/jquery.js"></script>
+<script src="/public/js/FileSaver.js"></script>
+<script src="/public/js/jquery.wordexport.js"></script>
 
-<body style="background: url(/public/images/trees.webp) ; background-size:100% 100% ; background-attachment: fixed">
+<body id="body" style="background: url(/public/images/trees.webp) ; background-size:100% 100% ; background-attachment: fixed">
     <div style="border: 1px solid #ffffff; width: 1200px; height: 500px;margin: 0 auto;">      
         <h2>智能合约代码</h2>
         <pre>
